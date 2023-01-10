@@ -1,4 +1,4 @@
-package kr.co.user.serivce;
+package kr.co.user.service;
 
 import java.util.List;
 

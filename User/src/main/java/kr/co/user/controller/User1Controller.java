@@ -9,36 +9,35 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import kr.co.user.serivce.User1Service;
+import kr.co.user.service.User1Service;
 import kr.co.user.vo.User1VO;
 
 
 @Controller
-@RequestMapping("/user1")
 public class User1Controller {
 
 	@Autowired
 	private User1Service service;
 	
-	@GetMapping("/list")
+	@GetMapping("/user1/list")
 	public String list(Model model) {
 		List<User1VO> users = service.selectUser1s();
 		model.addAttribute("users", users);
 		return "/user1/list";
 	}
 	
-	@GetMapping("/register")
+	@GetMapping("/user1/register")
 	public String register() {
 		return "/user1/register";
 	}
 	
-	@PostMapping("/register")
+	@PostMapping("/user1/register")
 	public String register(User1VO vo) {
 		service.insertUser1(vo);
 		return "redirect:/user1/list";
 	}
 	
-	@GetMapping("/modify")
+	@GetMapping("/user1/modify")
 	public String modify(String uid, Model model) {
 		User1VO user = service.selectUser1(uid);
 		model.addAttribute("user", user);

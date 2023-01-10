@@ -6,8 +6,8 @@
 	</head>
 <body>
 	<h3>user1 등록</h3>
-	<a href="/User">User 메인</a>
-	<a href="/User/user1/list">user1 목록</a>
+	<a th:href="@{/}">User 메인</a>
+	<a th:href="@{/user1/list}">user1 목록</a>
 	
 	<form action="/User/user1/register" method="post">
 		<table border="1">
