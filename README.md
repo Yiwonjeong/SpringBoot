@@ -3,6 +3,9 @@
 ## Ch06
 - Spring Boot 설치 및 개발환경 구축 
 
+## Ch07
+- Spring Boot JPA 기본 메소드, 쿼리 메소드 
+
 ## User
 - Spring Boot DB 연동 및 간단 회원 정보 목록, 입력, 수정, 삭제 기능 구현
 
