@@ -14,8 +14,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
-		// 인가(접근권한) 설정
+		// 인가(접근권한) 설정 (모든 링크(사용자)에 대해 허용을 해 준 상태, 권한관리필터)
 		http.authorizeHttpRequests().antMatchers("/").permitAll();
+		// admin 하위의 모든 자원 -> "ADMIN"에게 부여
+		http.authorizeHttpRequests().antMatchers("/admin/**").hasRole("ADMIN");
+		// member 하위의 모든 자원 -> "ADMIN", "MEMBER" 에게 부여
+		http.authorizeHttpRequests().antMatchers("/member/**").hasAnyRole("ADMIN", "MEMBER");
+		// GUEST는 무권한 -> 생략
 		
 		// 사이트 위변조 요청 방지
 		http.csrf().disable();

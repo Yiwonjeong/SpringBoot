@@ -34,7 +34,7 @@ public class SecurityUserService implements UserDetailsService{
 		UserDetails userDts = User.builder()
 								  .username(user.getUid())
 								  .password(user.getPass())
-								  .roles("ADMIN")	//마지막에 권한 주기
+								  .roles("MEMBER")	//마지막에 권한 주기
 								  .build();
 		
 		return userDts;
