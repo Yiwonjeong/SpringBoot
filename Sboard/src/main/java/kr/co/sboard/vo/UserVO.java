@@ -10,6 +10,8 @@ import lombok.ToString;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserVO {
 	
 	private String uid;

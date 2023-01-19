@@ -4,58 +4,7 @@
     <meta charset="UTF-8">
     <title>회원가입</title>    
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
-    <script>
-    	/* 순수 자바스크립트로 ajax 처리 */
-    	/* 브라우저가 로드된 후 수행  */
-    	window.onload = function(){
-    		
-    		const btnCheckUid = document.getElementById('btnCheckUid');
-			
-			/* btnCheckUid.addEventListener('click', function(){	 */
-			btnCheckUid.addEventListener('click', ()=>{
-				
-				let uid = document.querySelector('input[name=uid]').value;
-				
-				// AJAX 전송 
-				const xhr = new XMLHttpRequest();
-				xhr.open("GET", "/Sboard/user/checkUid?uid="+uid);
-				xhr.responseType = "json";
-				xhr.send();
-				
-				// callback 함수 (success)
-				xhr.onreadystatechange = function(){
-					
-					if(xhr.readyState == XMLHttpRequest.DONE){
-						if(xhr.status == 200){ /*200: 성공코드*/
-							const data = xhr.response;
-							console.log(data);
-							
-							const resultUid = document.querySelector('.resultUid');
-							
-							if(data.result == 1){
-								resultUid.innerText = '이미 사용중인 아이디입니다.';
-								resultUid.style.color = 'red';
-							}else{
-								resultUid.innerText = '사용 가능한 아이디입니다.';
-								resultUid.style.color = 'green';	
-							}
-							
-							
-							
-						}else{
-							alert("Request fail...");
-						}
-					}else{
-						
-					}
-					
-				}
-				
-				
-			});	
-			
-    	}
-    </script>
+    <script th:src="@{/js/user.js}"></script>
 </head>
 <body>
     <div id="wrapper">
@@ -87,6 +36,7 @@
                         <th>비밀번호 확인</th>
                         <td>
                             <input type="password" name="pass2" placeholder="비밀번호 입력 확인"/>
+                            <span class="resultPass2"></span>
                         </td>
                     </tr>
                 </table>
@@ -96,7 +46,8 @@
                     <tr>
                         <th>이름</th>
                         <td>
-                            <input type="text" name="name" placeholder="이름 입력"/>                        
+                            <input type="text" name="name" placeholder="이름 입력"/>   
+                             <span class="resultName"></span>                     
                         </td>
                     </tr>
                     <tr>
@@ -104,7 +55,7 @@
                         <td>
                             <p>공백없이 한글, 영문, 숫자 입력</p>
                             <input type="text" name="nick" placeholder="별명 입력"/>
-                            <button type="button"><img th:src="@{/img/chk_id.gif}" alt="중복확인"/></button>
+                            <button type="button" id="btnCheckNick"><img th:src="@{/img/chk_id.gif}" alt="중복확인"/></button>
                             <span class="resultNick"></span>
                         </td>
                     </tr>                    
@@ -112,12 +63,14 @@
                         <th>이메일</th>
                         <td>
                             <input type="email" name="email" placeholder="이메일 입력"/>
+                            <span class="resultEmail"></span>
                         </td>
                     </tr>
                     <tr>
                         <th>휴대폰</th>
                         <td>
                             <input type="text" name="hp" placeholder="- 포함 13자리 입력"/>
+                            <span class="resultHp"></span>
                         </td>
                     </tr>
                     <tr>

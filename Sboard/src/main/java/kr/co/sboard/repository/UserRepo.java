@@ -9,4 +9,5 @@ public interface UserRepo extends JpaRepository<UserEntity, String>{
 	//public int countUserEntityByUid(String uid);
 	public int countByUid(String uid);
 	
+	public int countByNick(String nick);
 }

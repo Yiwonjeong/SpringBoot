@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sboard.dao.ArticleDAO">
+	<insert id="insertArticle" useGeneratedKeys="true" keyProperty="no">
+	<!-- keyProperty="no" - return 값이 no -->
+		insert into `board_article` set
+			`title`=#{title},
+			`content`=#{content},
+			`uid`=#{uid},
+			`regip`=#{regip},
+			`rdate`=NOW();	
+	</insert>
+	<insert id="insertFile">
+		insert into `board_file` set
+			`parent`=#{parent},
+			`newName`=#{newName},
+			`oriName`=#{oriName};
+	</insert>
+</mapper>

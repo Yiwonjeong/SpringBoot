@@ -68,5 +68,18 @@ public class UserController {
 		return resultMap;
 	}
 	
+	@ResponseBody
+	@GetMapping("user/checkNick")
+	public Map<String, Integer> checkNick(@RequestParam("nick") String nick){
+		
+		log.info("nick: " + nick);
+		int result = service.countByNick(nick);
+		
+		Map<String, Integer> resultMap = new HashMap<>();
+		resultMap.put("result", result);
+		
+		return resultMap;
+	}
+	
 	
 }
