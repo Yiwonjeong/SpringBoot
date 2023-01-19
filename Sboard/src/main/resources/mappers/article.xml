@@ -8,14 +8,50 @@
 		insert into `board_article` set
 			`title`=#{title},
 			`content`=#{content},
+			<if test="fname.isEmpty() == true">
+				`file`=0,
+			</if>
+			<if test="fname.isEmpty() == false">
+				`file`=1,
+			</if>
 			`uid`=#{uid},
 			`regip`=#{regip},
 			`rdate`=NOW();	
 	</insert>
+	
 	<insert id="insertFile">
 		insert into `board_file` set
 			`parent`=#{parent},
 			`newName`=#{newName},
 			`oriName`=#{oriName};
 	</insert>
+	
+	<select id="selectArticles" resultType="kr.co.sboard.vo.ArticleVO">
+		select a.*, b.`nick` from `board_article` as a
+		join `board_user` as b
+		on a.uid = b.uid 
+		where `parent`=0
+		order by `no` desc
+		limit #{start}, 10;
+	</select>
+	
+	<select id="selectCountTotal" resultType="int">
+		select count(`no`) from `board_article` where `parent`=0;
+	</select>
+	
+	<select id="selectArticle" resultType="kr.co.sboard.vo.ArticleVO">
+		select a.*, b.parent, b.pno, b.newName, b.oriName, b.download 
+		from `board_article` as a
+		join `board_file` as b
+		on a.no = b.parent
+		where `no`=#{no};
+	</select>
+	
+	
+	
+	
+	
+	
+	
+
 </mapper>

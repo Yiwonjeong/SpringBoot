@@ -30,4 +30,11 @@ public class ArticleVO {
 	private String regip;
 	private String rdate;
 	
+	// 추가 필드
+	private String nick;
+	
+	public String getRdate() {
+		return rdate.substring(2,10);
+	}
+	
 }
