@@ -2,6 +2,10 @@ package kr.co.sboard.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.UUID;
 
@@ -10,6 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.ContentDisposition;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -103,15 +113,31 @@ public class ArticleService {
 		return fvo;
 	}
 	
-	// 파일 다운로드 '클릭'
-	public FileVO selectFile(int parent) {
-		return dao.selectFile(parent);
-	}
-	
-	public void fileDownload() {
+	// 파일 다운로드
+	public ResponseEntity<Resource> fileDownload(FileVO vo) throws IOException {
+		Path path = Paths.get(uploadPath+vo.getNewName());
+		String contentType = Files.probeContentType(path);
 		
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentDisposition(ContentDisposition
+										.builder("attachment")
+										.filename(vo.getOriName(), StandardCharsets.UTF_8)
+										.build());
+		
+		headers.add(HttpHeaders.CONTENT_TYPE, contentType);
+		
+		Resource resource = new InputStreamResource(Files.newInputStream(path));
+		
+		return new ResponseEntity<>(resource, headers, HttpStatus.OK);
 	}
 	
+	// 파일 다운로드 클릭 시
+	@Transactional
+	public FileVO selectFile(int fno) {
+		FileVO vo = dao.selectFile(fno);
+		dao.updateDownload(fno);
+		return vo;
+	}
 	
 	
 	

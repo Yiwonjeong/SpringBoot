@@ -31,7 +31,11 @@ public interface ArticleDAO {
 	public int updateArticleHit(int no);
 	
 	// 파일 다운로드 '클릭'
-	public FileVO selectFile(int parent);
+	public FileVO selectFile(int fno);
+	
+	//	파일 다운로드 횟수 +1
+	public int updateDownload(int fno);
+	
 	
 	
 }

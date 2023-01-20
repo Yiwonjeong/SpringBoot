@@ -16,7 +16,7 @@
         </header>
 
         <main id="board" class="view">
-            <input type="text" th:value="${article.no}">
+            <input type="hidden" th:value="${article.no}">
             <table>
                 <caption>글 보기</caption>
                 <tr>
@@ -25,7 +25,7 @@
                 </tr>
                 <tr th:if="${article.file == 1}">
                     <th>파일</th>
-                    <td><a href="#">[[${article.fileVO.oriName}]]</a>(<span>[[${article.fileVO.download}]]</span>회 다운로드)</td>
+                    <td><a th:href="@{/download(fno=${article.fileVO.fno})}">[[${article.fileVO.oriName}]]</a>(<span>[[${article.fileVO.download}]]</span>회 다운로드)</td>
                 </tr>
                 <tr>
                     <th>내용</th>

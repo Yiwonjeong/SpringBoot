@@ -82,12 +82,15 @@
 	</update>
 	
 	<!-- 파일 다운로드 '클릭'-->
-	<select id="selectFile">
-		select * from `board_file` where `parent`=#{parent};
+	<select id="selectFile" resultType="kr.co.sboard.vo.FileVO">
+		select * from `board_file` where `fno`=#{fno};
 	</select>
 	
+	<!-- 파일 다운로드 횟수 +1 -->
+	<update id="updateDownload">
+		update `board_file` set `download`=`download`+ 1 where `fno`=#{fno}	
+	</update>
 	
-	<update id="updateArticle"></update>
 	
 	
 
