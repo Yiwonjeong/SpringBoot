@@ -6,7 +6,7 @@
 let reUid   = /^[a-z0-9_-]{4,20}$/; // 소문자 + 숫자 + 언더바/하이픈 허용 4~20자리
 let rePass  = /(?=.*[a-zA-ZS])(?=.*?[#?!@$%^&*-]).{6,24}/; // 문자와 특수문자 조합의 6~24 자리
 let reName  = /^[가-힣]+$/; // 한글만
-let reNick  = /^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{2,20}$/;	// 닉네임 (글자수만 제한 2~20)	
+//let reNick  = /^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{2,20}$/;	// 닉네임 (글자수만 제한 2~20)	
 let reEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 let reHp    = /^01(?:0|1|[6-9])-(?:\d{4})-\d{4}$/;
 let reAuth  = /^[0-9]+$/;
@@ -132,6 +132,7 @@ let isHpok = false;
 		}
 	});
 	
+	/*
 	// 닉네임 유효성 검사
 	const btnCheckNick = document.getElementById('btnCheckNick');
 	
@@ -181,7 +182,7 @@ let isHpok = false;
 		 }
 		
 	});
-	
+	*/
 	
 	
 	// 이메일 유효성 검사
