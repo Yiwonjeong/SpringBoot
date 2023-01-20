@@ -6,17 +6,17 @@
 	<insert id="insertArticle" useGeneratedKeys="true" keyProperty="no">
 	<!-- keyProperty="no" - return 값이 no -->
 		insert into `board_article` set
-			`title`=#{title},
-			`content`=#{content},
-			<if test="fname.isEmpty() == true">
-				`file`=0,
-			</if>
-			<if test="fname.isEmpty() == false">
-				`file`=1,
-			</if>
-			`uid`=#{uid},
-			`regip`=#{regip},
-			`rdate`=NOW();	
+		`title`=#{title},
+		`content`=#{content},
+		<if test="fname.isEmpty() == true">
+			`file`=0,
+		</if>
+		<if test="fname.isEmpty() == false">
+			`file`=1,
+		</if>
+		`uid`=#{uid},
+		`regip`=#{regip},
+		`rdate`=NOW();	
 	</insert>
 	
 	<insert id="insertFile">
@@ -39,18 +39,55 @@
 		select count(`no`) from `board_article` where `parent`=0;
 	</select>
 	
-	<select id="selectArticle" resultType="kr.co.sboard.vo.ArticleVO">
-		select a.*, b.parent, b.pno, b.newName, b.oriName, b.download 
-		from `board_article` as a
-		join `board_file` as b
+	<select id="selectArticle" resultMap="selectArticleResultMap">
+		select * from `board_article` as a
+		left join `board_file` as b
 		on a.no = b.parent
 		where `no`=#{no};
 	</select>
 	
+	<!-- 게시글 조회(selectArticle) 결과를 상세하게 매핑하기 위한 사용자 정의 Map(key, value)-->
+	<!-- DB의 값을 ArticleVO에 매핑(저장) -->
+	<resultMap type="kr.co.sboard.vo.ArticleVO" id="selectArticleResultMap">
+		<id column="no" property="no"/>
+		<result column="parent" property="parent"/>
+		<result column="comment" property="comment"/>
+		<result column="cate" property="cate"/>
+		<result column="title" property="title"/>
+		<result column="content" property="content"/>
+		<result column="file" property="file"/>
+		<result column="hit" property="hit"/>
+		<result column="uid" property="uid"/>
+		<result column="regip" property="regip"/>
+		<result column="rdate" property="rdate"/>
+		
+		<!-- 연관관계 매핑 -->
+		<association property="fileVO" javaType="kr.co.sboard.vo.FileVO"> 
+			<id column="fno" property="fno"/>
+			<result column="parent" property="parent"/>
+			<result column="newName" property="newName"/>
+			<result column="oriName" property="oriName"/>
+			<result column="download" property="download"/>
+		</association>
+		
+		<!-- 다중 파일 업로드시 (List)  -->
+		<!-- <collection property=""></collection> -->
+	</resultMap>
 	
 	
 	
+	<!-- 게시글 조회수 +1 -->
+	<update id="updateArticleHit">
+		update `board_article` set `hit`=`hit`+1 where `no`=#{no};
+	</update>
 	
+	<!-- 파일 다운로드 '클릭'-->
+	<select id="selectFile">
+		select * from `board_file` where `parent`=#{parent};
+	</select>
+	
+	
+	<update id="updateArticle"></update>
 	
 	
 

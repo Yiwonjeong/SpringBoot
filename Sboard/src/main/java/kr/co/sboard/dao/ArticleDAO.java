@@ -27,6 +27,11 @@ public interface ArticleDAO {
 	
 	public int deleteArticle(int no);
 	
+	// 게시글 조회수 +1
+	public int updateArticleHit(int no);
+	
+	// 파일 다운로드 '클릭'
+	public FileVO selectFile(int parent);
 	
 	
 }

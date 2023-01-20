@@ -1,18 +1,26 @@
 package kr.co.sboard.controller;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.sboard.entity.UserEntity;
 import kr.co.sboard.security.MyUserDetails;
 import kr.co.sboard.service.ArticleService;
 import kr.co.sboard.vo.ArticleVO;
+import kr.co.sboard.vo.FileVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -48,10 +56,26 @@ public class ArticleController {
 		return "list";
 	}
 	
+//	@GetMapping("view")
+//	public String view(int no, Model model) {
+//		service.updateArticleHit(no);
+//		ArticleVO article = service.selectArticle(no);
+//		model.addAttribute("article", article);
+//		return "view";
+//	}
+	
 	@GetMapping("view")
-	public String view() {
+	public String view(@RequestParam("no") int no, Model model) {
+		service.updateArticleHit(no);
+		ArticleVO article = service.selectArticle(no);
+		model.addAttribute("article", article);
 		return "view";
 	}
+	
+	
+	
+	
+	
 	
 	@GetMapping("write")
 	public String write() {

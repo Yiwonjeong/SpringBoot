@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -33,10 +36,8 @@ public class ArticleService {
 		
 		// 글 등록
 		int result = dao.insertArticle(vo);
-		
 		// 파일 업로드
 		FileVO fvo = fileUpload(vo);
-		
 		if(fvo != null) {
 			// 파일 등록
 			dao.insertFile(fvo);
@@ -50,14 +51,16 @@ public class ArticleService {
 	}
 	
 	public List<ArticleVO> selectArticles(int start){
-		
-		
-		
 		return dao.selectArticles(start);
 	}
 	
+	
 	public int updateArticle(ArticleVO vo) {
 		return dao.updateArticle(vo);
+	}
+	
+	public int updateArticleHit(int no) {
+		return dao.updateArticleHit(no);
 	}
 	
 	public int deleteArticle(int no) {
@@ -99,6 +102,17 @@ public class ArticleService {
 		
 		return fvo;
 	}
+	
+	// 파일 다운로드 '클릭'
+	public FileVO selectFile(int parent) {
+		return dao.selectFile(parent);
+	}
+	
+	public void fileDownload() {
+		
+	}
+	
+	
 	
 	
 	// 페이지 시작값

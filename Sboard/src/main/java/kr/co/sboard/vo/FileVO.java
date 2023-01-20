@@ -14,7 +14,7 @@ import lombok.Setter;
 public class FileVO {
 
 	
-	private int fNo;
+	private int fno;
 	private int parent;
 	private String newName;
 	private String oriName;

@@ -1,5 +1,7 @@
 package kr.co.sboard.vo;
 
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
@@ -32,6 +34,10 @@ public class ArticleVO {
 	
 	// 추가 필드
 	private String nick;
+	private FileVO fileVO;
+	
+	// 파일 다중 업로드 시 (List)
+	//	private List<FileVO> fileVO;
 	
 	public String getRdate() {
 		return rdate.substring(2,10);
