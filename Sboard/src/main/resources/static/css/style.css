@@ -125,6 +125,13 @@ footer > p {
     margin: 60px auto;
     overflow: hidden;
 }
+#user.terms > .chk_all_label span {
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-left: 10px;
+}
 #user.terms > table {
     width: 100%;
     height: auto;
@@ -156,7 +163,13 @@ footer > p {
     float: right;
     margin: 6px 0;
 }
-#user.terms > table input[type=checkbox] {}
+#user.terms > table label > span {
+	cursor: pointer;
+    margin-right: 4px
+}
+#user.terms > table input[type=checkbox] {
+	vertical-align: middle;
+}
 
 #user.terms > p {
     float: right;
@@ -172,6 +185,15 @@ footer > p {
 }
 #user.terms > p > a.next {
     background: #e9e9e9;
+}
+#user.terms > .errorMsg {
+	display: none;
+	padding-top: 10px;
+    float: left;
+    margin-top: 8px;
+    margin-left: 10px;
+    color: red;
+    font-weight: 600;
 }
 
 /* 회원가입 */

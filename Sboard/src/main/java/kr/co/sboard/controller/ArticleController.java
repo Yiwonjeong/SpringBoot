@@ -33,6 +33,21 @@ public class ArticleController {
 	@Autowired
 	private ArticleService service;
 
+	// ---------- 글 ------------
+	// '글 등록하기' 화면
+	@GetMapping("write")
+	public String write() {
+		return "write";
+	}
+	
+	// 글 등록하기
+	@PostMapping("write")
+	public String write(ArticleVO vo) {
+		service.insertArticle(vo);
+		return "redirect:/list";
+	}
+	
+	// 글 목록 불러오기
 	@GetMapping("list")
 	public String list(@AuthenticationPrincipal MyUserDetails myUser, Model model, String pg) {
 		// principal : security가 저장하는 사용자 객체 (myUser)
@@ -59,22 +74,42 @@ public class ArticleController {
 		return "list";
 	}
 	
-//	@GetMapping("view")
-//	public String view(int no, Model model) {
-//		service.updateArticleHit(no);
-//		ArticleVO article = service.selectArticle(no);
-//		model.addAttribute("article", article);
-//		return "view";
-//	}
-	
+	// 글 불러오기
 	@GetMapping("view")
-	public String view(@RequestParam("no") int no, Model model) {
+	public String view(@RequestParam("no") int no, Model model, int pg) {
 		service.updateArticleHit(no);
+		
 		ArticleVO article = service.selectArticle(no);
 		model.addAttribute("article", article);
+		model.addAttribute("pg", pg);
 		return "view";
 	}
 	
+	// 글 '수정하기' 화면
+	@GetMapping("modify")
+	public String modify(@RequestParam("no") int no, Model model, int pg) {
+		ArticleVO article = service.selectArticle(no);
+		model.addAttribute("article", article);
+		model.addAttribute("pg", pg);
+		return "modify";
+	}
+	
+	// 글 수정하기
+	@PostMapping("modify")
+	public String modify(ArticleVO vo) {
+		service.updateArticle(vo);
+		return "redirect:/view?no="+vo.getNo()+"&pg="+vo.getPg();
+	}
+	
+	// 글 삭제하기
+	@GetMapping("delete")
+	public String delete(int pg, int no) {
+		service.deleteArticle(no);
+		return "redirect:/list?pg="+pg;
+	}
+	
+	// ----------  파일 -------------
+	// 파일 다운로드
 	@GetMapping("download")
 	public ResponseEntity<Resource> download(int fno) throws IOException {
 		FileVO vo = service.selectFile(fno);
@@ -82,21 +117,9 @@ public class ArticleController {
 		return respEntity;
 	}
 	
-	@GetMapping("write")
-	public String write() {
-		return "write";
-	}
 	
-	@GetMapping("modify")
-	public String modify() {
-		return "modify";
-	}
 	
-	@PostMapping("write")
-	public String write(ArticleVO vo) {
-		service.insertArticle(vo);
-		return "redirect:/list";
-	}
+	
 	
 	
 }

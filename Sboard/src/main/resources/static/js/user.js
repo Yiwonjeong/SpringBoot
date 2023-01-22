@@ -6,7 +6,7 @@
 let reUid   = /^[a-z0-9_-]{4,20}$/; // 소문자 + 숫자 + 언더바/하이픈 허용 4~20자리
 let rePass  = /(?=.*[a-zA-ZS])(?=.*?[#?!@$%^&*-]).{6,24}/; // 문자와 특수문자 조합의 6~24 자리
 let reName  = /^[가-힣]+$/; // 한글만
-//let reNick  = /^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{2,20}$/;	// 닉네임 (글자수만 제한 2~20)	
+let reNick  = /^[a-zA-Zㄱ-힣0-9][a-zA-Zㄱ-힣0-9]*$/;
 let reEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 let reHp    = /^01(?:0|1|[6-9])-(?:\d{4})-\d{4}$/;
 let reAuth  = /^[0-9]+$/;
@@ -132,8 +132,9 @@ let isHpok = false;
 		}
 	});
 	
-	/*
+	
 	// 닉네임 유효성 검사
+	
 	const btnCheckNick = document.getElementById('btnCheckNick');
 	
 	btnCheckNick.addEventListener('click', ()=>{
@@ -150,39 +151,35 @@ let isHpok = false;
 		}
 		
 		// 별명 정규식 검사
-		if(!reNick.test(nick.value)){
-			resultNick.textContent = '한글, 영문, 숫자 2~20자리';
-			resultNick.style.color = 'red';
+		if(reNick.match(nick.value)){
+			$.ajax({
+				url:'/Sboard/user/'+nick,
+				method:'get',
+				dataType:'JSON',
+				success: function(data){
+					console.log(data.result)
+					if(data.result == 1){
+						resultNick.textContent = "이미 사용 중인 별명입니다.";
+						resultNick.style.color = "red";
+						resultNick.focus();
+						isNickok = false;
+					}else{
+						resultNick.textContent = "사용 가능한 별명입니다.";
+						resultNick.style.color = "green";
+						isNickok = true;
+					}
+				}
+			});
+		}else{
+			resultNick.innerText = "사용 불가능한 별명입니다.";
+			resultNick.style.color = "red";
+			isNickok = false;
 			resultNick.focus();
-			return false;
+			return;
 		}
 		
-		// AJAX 전송
-	 	const xhr2 = new XMLHttpRequest();
-	 	xhr2.open("GET", "/Sboard/user/checkNick?nick="+nick);
-	 	xhr2.reponseType = "json";
-	 	xhr2.send();
-	 	
-	 	xhr2.onreadystatechange = function(){
-			 if(xhr2.status == 200){
-				 const data2 = xhr2.response;
-				 console.log(data2);
-				 
-				 if(data2.result == 1){
-					 resultNick.textContent = '이미 사용 중인 별명입니다.';
-					 resultNick.style.color = 'red';
-					 resultNick.focus();
-				 }else{
-					 isNickok = true;
-					 resultNick.style.display = 'none';
-				 }
-			 }else{
-				 alert("Reuqest faill...");
-			 }
-		 }
-		
 	});
-	*/
+	
 	
 	
 	// 이메일 유효성 검사

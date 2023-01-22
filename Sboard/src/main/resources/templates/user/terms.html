@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>약관</title>    
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <script th:src="@{/js/terms.js}"></script>
 </head>
 <body>
     <div id="wrapper">
@@ -11,12 +12,19 @@
             <h3>Board System v1.0</h3>
         </header>
         <main id="user" class="terms">
+	        <label class="chk_all_label">
+	        	<input type="checkbox" id="checkAll">
+	        	<span>Sboard 이용약관, 개인정보 수집 및 이용에 모두 동의합니다.</span>
+	        </label>
             <table border="0">
                 <caption>사이트 이용약관</caption>
                 <tr>
                     <td>
                         <textarea class="terms" readonly>[[${termsVO.terms}]]</textarea>
-                        <label><input type="checkbox" class="terms">&nbsp;동의합니다.</label>
+                        <label>
+                        	<input type="checkbox" class="terms" name="agree" id="chk01">
+                        	<span>동의합니다</span>
+                        </label>
                     </td>
                 </tr>
             </table>
@@ -26,14 +34,19 @@
                 <tr>
                     <td>
                         <textarea class="privacy" readonly>[[${termsVO.privacy}]]</textarea>
-                        <label><input type="checkbox" class="privacy">&nbsp;동의합니다.</label>
+                        <label>
+                        	<input type="checkbox" class="privacy" name="agree" id="chk02">
+                        	<span>동의합니다</span>
+                        </label>
                     </td>
                 </tr>
             </table>
-
+			<span class="errorMsg">
+				Sboard 이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.
+			</span>
             <p>
                 <a th:href="@{/user/login}" class="cancel">취소</a>	
-                <a th:href="@{/user/register}" class="next">다음</a>
+                <a th:href="@{/user/register}" class="next" id="btnNext" >다음</a>
             </p>            
         </main>
 

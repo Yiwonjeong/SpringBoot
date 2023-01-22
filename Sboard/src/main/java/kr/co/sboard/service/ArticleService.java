@@ -12,6 +12,7 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.aspectj.apache.bcel.generic.ReturnaddressType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamResource;
@@ -41,9 +42,10 @@ public class ArticleService {
 	@Autowired
 	private ArticleRepo repo;
 	
+	// ---------- 글 ------------
+	// 글 등록하기
 	@Transactional
 	public int insertArticle(ArticleVO vo) {
-		
 		// 글 등록
 		int result = dao.insertArticle(vo);
 		// 파일 업로드
@@ -52,31 +54,38 @@ public class ArticleService {
 			// 파일 등록
 			dao.insertFile(fvo);
 		}
-		
 		return result;	
 	}
 	
-	public ArticleVO selectArticle(int no) {
-		return dao.selectArticle(no);
-	}
-	
+	// 글 목록 불러오기
 	public List<ArticleVO> selectArticles(int start){
 		return dao.selectArticles(start);
 	}
 	
+	// 글 불러오기
+	public ArticleVO selectArticle(int no) {
+		ArticleVO vo = dao.selectArticle(no);
+		return vo;
+	}
 	
+	// 글 수정하기
 	public int updateArticle(ArticleVO vo) {
-		return dao.updateArticle(vo);
+		int result = dao.updateArticle(vo);
+		return result;
 	}
 	
-	public int updateArticleHit(int no) {
-		return dao.updateArticleHit(no);
-	}
-	
+	// 글 삭제하기
 	public int deleteArticle(int no) {
 		return dao.deleteArticle(no);
 	}
 	
+	// 글 조회수 +1
+	public int updateArticleHit(int no) {
+		return dao.updateArticleHit(no);
+	}
+	
+	
+	// ----------  파일 -------------
 	@Value("${spring.servlet.multipart.location}")
 	private String uploadPath;
 	
@@ -131,16 +140,17 @@ public class ArticleService {
 		return new ResponseEntity<>(resource, headers, HttpStatus.OK);
 	}
 	
-	// 파일 다운로드 클릭 시
+	// 파일 다운로드 '클릭'
 	@Transactional
 	public FileVO selectFile(int fno) {
 		FileVO vo = dao.selectFile(fno);
+		// 파일 다운로드 횟수 +1
 		dao.updateDownload(fno);
 		return vo;
 	}
 	
 	
-	
+	// ----------  페이징  -------------
 	// 페이지 시작값
 	public int getLimitStart(int currentPage) {
 		return (currentPage - 1) * 10;

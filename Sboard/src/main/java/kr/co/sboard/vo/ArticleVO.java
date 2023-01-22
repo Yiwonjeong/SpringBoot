@@ -32,15 +32,17 @@ public class ArticleVO {
 	private String regip;
 	private String rdate;
 	
-	// 추가 필드
-	private String nick;
-	private FileVO fileVO;
-	
-	// 파일 다중 업로드 시 (List)
-	//	private List<FileVO> fileVO;
-	
 	public String getRdate() {
 		return rdate.substring(2,10);
 	}
+	
+	// 추가 필드
+	private String nick;
+	private FileVO fileVO;
+	private int pg;
+	
+	// 파일 다중 업로드 시 (List)
+	//	private List<FileVO> fileVO;
+		
 	
 }

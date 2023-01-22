@@ -11,18 +11,17 @@
         <header>
             <h3>Board System v1.0</h3>
             <p>
-                <span class="nick">[[${#authentication.principal.user.nick}]]</span>님 반갑습니다.
+               <span class="nick">[[${#authentication.principal.user.nick}]]</span>님 반갑습니다.
                <a th:href="@{/user/logout}" class="logout">[로그아웃]</a>
             </p>
         </header>
 
         <main id="board" class="write">
-            
             <form th:action="@{/write}" method="post" enctype="multipart/form-data">
             	<input type="text" name="uid" th:value="${#authentication.principal.user.uid}" >
             	<input type="text" name="regip" th:value="${#authentication.details.remoteAddress}" >
                 <table border="0">
-                    <caption>글쓰기</caption>
+                    <caption>글 쓰기</caption>
                     <tr>
                         <th>제목</th>
                         <td><input type="text" name="title" placeholder="제목을 입력하세요."/></td>

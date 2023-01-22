@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>글보기</title>    
+    <title>글 보기</title>    
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
@@ -10,13 +10,16 @@
         <header>
             <h3>Board System v1.0</h3>
             <p>
-                <span class="nick">길동이</span>님 반갑습니다.
-                <a href="#" class="logout">[로그아웃]</a>
+               <span class="nick">[[${#authentication.principal.user.nick}]]</span>님 반갑습니다.
+               <a th:href="@{/user/logout}" class="logout">[로그아웃]</a>
             </p>
         </header>
 
         <main id="board" class="view">
-            <input type="hidden" th:value="${article.no}">
+            <input type="text" name="no" th:value="${article.no}">
+            <input type="text" name="pg" th:value="${pg}">
+            <input type="text" name="uid" th:value="${#authentication.principal.user.uid}" >
+           	<input type="text" name="regip" th:value="${#authentication.details.remoteAddress}" >
             <table>
                 <caption>글 보기</caption>
                 <tr>
@@ -33,10 +36,13 @@
                 </tr>
             </table>
 
-            <div>
-                <a th:href="@{/#}" class="btn btnRemove">삭제</a>
-                <a th:href="@{/modify}" class="btn btnModify">수정</a>
-                <a th:href="@{/list}" class="btn btnList">목록</a>
+            <div th:if="${article.uid == #authentication.principal.user.uid}">
+                <a th:href="@{/delete (no=${article.no}, pg=${pg})}" class="btn btnRemove">삭제</a>
+                <a th:href="@{/modify (no=${article.no}, pg=${pg})}" class="btn btnModify">수정</a>
+                <a th:href="@{/list (pg=${pg})}" class="btn btnList">목록</a>
+            </div>
+            <div th:unless="${article.uid == #authentication.principal.user.uid}">
+                <a th:href="@{/list (pg=${pg})}" class="btn btnList">목록</a>
             </div>
 
             <!-- 댓글목록 -->

@@ -3,8 +3,11 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.sboard.dao.ArticleDAO">
+
+	<!-- ********************************* 글 ********************************** -->
+	<!-- 글 등록하기 -->
 	<insert id="insertArticle" useGeneratedKeys="true" keyProperty="no">
-	<!-- keyProperty="no" - return 값이 no -->
+		<!-- keyProperty="no" - return 값이 no -->
 		insert into `board_article` set
 		`title`=#{title},
 		`content`=#{content},
@@ -19,13 +22,7 @@
 		`rdate`=NOW();	
 	</insert>
 	
-	<insert id="insertFile">
-		insert into `board_file` set
-			`parent`=#{parent},
-			`newName`=#{newName},
-			`oriName`=#{oriName};
-	</insert>
-	
+	<!-- 글 목록 불러오기 -->
 	<select id="selectArticles" resultType="kr.co.sboard.vo.ArticleVO">
 		select a.*, b.`nick` from `board_article` as a
 		join `board_user` as b
@@ -35,10 +32,7 @@
 		limit #{start}, 10;
 	</select>
 	
-	<select id="selectCountTotal" resultType="int">
-		select count(`no`) from `board_article` where `parent`=0;
-	</select>
-	
+	<!-- 글 불러오기 -->
 	<select id="selectArticle" resultMap="selectArticleResultMap">
 		select * from `board_article` as a
 		left join `board_file` as b
@@ -75,12 +69,35 @@
 	</resultMap>
 	
 	
+	<!-- 글 수정하기 (일단 파일 수정 불가)-->
+	<update id="updateArticle">
+		update `board_article` set 
+		`title`=#{title},
+		`content`=#{content},
+		`rdate`=NOW()
+		where `no`=#{no};
+	</update>
 	
-	<!-- 게시글 조회수 +1 -->
+	<!-- 글 삭제하기 -->
+	<delete id="deleteArticle">
+		delete from `board_article` where `no`=#{no};
+	</delete>
+	
+	
+	<!-- 글 조회수 +1 -->
 	<update id="updateArticleHit">
 		update `board_article` set `hit`=`hit`+1 where `no`=#{no};
 	</update>
 	
+	<insert id="insertFile">
+		insert into `board_file` set
+			`parent`=#{parent},
+			`newName`=#{newName},
+			`oriName`=#{oriName};
+	</insert>
+	
+	
+	<!-- ********************************* 파일 ********************************** -->
 	<!-- 파일 다운로드 '클릭'-->
 	<select id="selectFile" resultType="kr.co.sboard.vo.FileVO">
 		select * from `board_file` where `fno`=#{fno};
@@ -92,6 +109,11 @@
 	</update>
 	
 	
+	<!-- ********************************* 페이징 - 글 전체 개수 ********************************** -->
+	<select id="selectCountTotal" resultType="int">
+		select count(`no`) from `board_article` where `parent`=0;
+	</select>
 	
+	<!-- ********************************* 댓글 ********************************** -->
 
 </mapper>
