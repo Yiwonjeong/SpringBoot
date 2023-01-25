@@ -22,6 +22,8 @@ public class SecurityConfigration {
 		http.authorizeHttpRequests().antMatchers("/").permitAll();
 		http.authorizeHttpRequests().antMatchers("/list").hasAnyRole("2", "3", "4", "5"); 	// 회원 가입 후 grade 권한 : 2
 		http.authorizeHttpRequests().antMatchers("/write", "/view", "/modify").hasAnyRole("2", "3", "4", "5"); 
+		http.authorizeHttpRequests().antMatchers("/insertComment").hasAnyRole("2", "3", "4", "5"); 
+		//http.authorizeHttpRequests(req -> req.antMatchers("/").permitAll().antMatchers("/user/*").hasRole("ANONYMOUS").anyRequest().authenticated());
 		
 		
 		// 사이트 위변조 요청 방지

@@ -468,15 +468,55 @@ footer > p {
 }
 
 #board.view > .commentList {}
+#board.view > .commentList article {
+	position: relative;
+	padding: 9px 0 6px 0;
+}
 #board.view > .commentList  h3 {}
 #board.view > .commentList  span {}
+#board.view > .commentList .nick {
+	font-size: 13px;
+}
+#board.view > .commentList .date {
+    font-size: 11px;
+    color: #959595;
+}
 #board.view > .commentList .content {
     padding: 10px;
     box-sizing: border-box;
+    width: 90%;
 }
-#board.view > .commentList > article > div {
-    text-align: right;
+#board.view > .commentList div {
+    margin-bottom: 10px;
+    position: absolute;
+    right: 0px;
+    top: 4px;
 }        
+#board.view > .commentList article > div .remove {
+	background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    background-color: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #dcdcdc;
+    cursor: pointer;
+    padding: 4px;
+}
+#board.view > .commentList article > div .modify {
+	background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    background-color: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #dcdcdc;
+    cursor: pointer;
+    padding: 4px;
+}
+#board.view > .commentList article > div .modifyComplete {
+	background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    background-color: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #dcdcdc;
+    cursor: pointer;
+    padding: 4px;
+    display: none;
+}
 #board.view > .commentList .empty {
     padding: 20px;
     text-align: center;
@@ -509,6 +549,7 @@ footer > p {
     border: 1px solid #3b3c3f;
     background: #4b545e;
     color: white;
+    cursor: pointer;
 }
 
 

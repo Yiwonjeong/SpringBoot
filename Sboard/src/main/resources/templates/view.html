@@ -4,6 +4,73 @@
     <meta charset="UTF-8">
     <title>글 보기</title>    
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+    	$(document).ready(function(){
+    		
+    		$(document).on('click', '.modify', function(e){
+    			e.preventDefault();
+    			
+    			let txt = $(this).text();
+    			p_tag = $(this).parent().prev();
+    			
+    			if(txt == '수정'){
+    				$(this).hide();
+    				$(this).next().css('display', 'inline-block');
+    				p_tag.attr('contentEditable', true);
+    				p_tag.focus();
+    			}
+			});
+    		
+    		$(document).on('click', '.modifyComplete', function(e){
+    			e.preventDefault();
+    			
+    			let txt = $(this).text();
+    			
+    			if(txt == '등록'){
+    				$(this).hide();
+    				$(this).prev().show();
+    				
+    				console.log('here1');
+    				
+    				let no = $(this).attr('data-no');
+    				let content = p_tag.text();
+    				
+    				console.log(no);
+    				console.log(content);
+    				
+    				const jsonData = {
+    						'no': no,
+    						'content': content
+    				};
+    				
+    				console.log(jsonData);
+    				
+    				// 여기서 어떻게 컨트롤러에 있는 updateComment으로 넘기지? 
+    				// POST http://localhost:8080/updateComment 404
+    				// 경로 변경 (Sboard 추가) -> 그냥 console.log("AJAX_ERROR"); 출력
+    				$.ajax({
+    					url : '/Sboard/updateComment',
+    					type: 'POST',
+    					data: jsonData,
+    					dataType: 'json',
+    					success: function(data){
+    						console.log(data);
+    						if(data.result == 1){
+    							alert('수정되었습니다.');
+    						}else {
+    							alert('error');
+    						}
+    					}	
+    					
+    				});
+    				
+    			}	
+    			
+    		});
+    		
+    	});
+    </script>
 </head>
 <body>
     <div id="wrapper">
@@ -48,23 +115,39 @@
             <!-- 댓글목록 -->
             <section class="commentList">
                 <h3>댓글목록</h3>
-                <article>
-                    <span class="nick">길동이</span>
-                    <span class="date">20-05-13</span>                    
-                    <p class="content">댓글 샘플입니다.</p>
-                    <div>
-                        <a href="#" class="remove">삭제</a>
-                        <a href="#" class="modify">수정</a>
-                    </div>
-                </article>                
-                <p class="empty">등록된 댓글이 없습니다.</p>
+               	<article th:each="comment : ${comments}">
+                	<input type="hidden" name="no" th:value="${comment.no}" >
+                    <input type="hidden" name="pg" th:value="${pg}">
+                    <input type="hidden" name="uid" th:value="${comment.uid}">   
+                    <input type="hidden" name="parent" th:value="${comment.parent}">   
+                    
+                    <span class="nick">[[${comment.nick}]]</span>
+                    <span class="date">[[${comment.rdate}]]</span>                    
+                    <p class="content">[[${comment.content}]]</p>
+                    
+                    <th:block th:if="${#authentication.principal.user.uid eq comment.uid}">
+                    	<div>
+                    		<a th:href="@{#}" class="modify">수정</a>
+                    		<a th:action="@{#}" class="modifyComplete" th:data-no="${comment.no}" th:data-pg="${pg}">등록</a> 
+                    		<!-- <a th:href="@{/updateComment(no=${comment.parent}, pg=${pg})}" class="modifyComplete">등록</a>  -->
+                    		<a th:href="@{/deleteComment(no=${comment.no}, pg=${pg}, parent=${comment.parent})}" class="remove" th:data-no="${comment.no}" th:data-parent="${comment.parent}">삭제</a>
+                    	</div>
+                    </th:block>
+                </article>  
+                <th:block  th:if="${#lists.isEmpty(comments)}">
+                	 <p class="empty">등록된 댓글이 없습니다.</p>
+                </th:block>  
+                
             </section>
 
             <!-- 댓글쓰기 -->
             <section class="commentForm">
                 <h3>댓글쓰기</h3>
-                <form action="#">
-                    <textarea name="content" placeholder="댓글내용 입력"></textarea>
+                <form th:action="@{/insertComment}" method="post">
+                	<input type="hidden" name="uid" th:value="${#authentication.principal.user.uid}">
+                	<input type="hidden" name="pg" th:value="${pg}">
+					<input type="hidden" name="parent" th:value="${article.no}">
+                    <textarea name="content" placeholder="인터넷은 우리가 함께 만들어가는 소중한 공간입니다. 댓글 작성 시 타인에 대한 배려와 책임을 담아주세요."></textarea>
                     <div>
                         <a href="#" class="btn btnCancel">취소</a>
                         <input type="submit" class="btn btnComplete" value="작성완료"/>
