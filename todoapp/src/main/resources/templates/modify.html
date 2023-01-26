@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>todoapp::modify</title>
+		<link rel="stylesheet" href="/todoapp/style.css"/>
+	</head>
+	<body>
+	<div id="wrapper">
+		<header><h3>To Do List</h3></header>
+		<main id="todo" class="modify"></main>
+		<a th:href="@{/list}" class="btnCancel">취소</a>
+		<form th:action="@{/modify}" method="post">
+			<input type="hidden" name="no" th:value="${list.no}"/>
+			<table border="1">
+				<tr>
+					<td>[[${list.content}]]</td>
+				</tr>
+				<tr>
+					<td><input type="text" name="content" th:value="${list.content}"/></td>			
+				</tr>
+			</table>
+			<input type="submit" value="수정완료" class="btnComplete"/>
+		</form>
+	</div>
+	</body>
+</html>

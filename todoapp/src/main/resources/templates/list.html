@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>todoapp::list</title>
+		<link rel="stylesheet" href="/todoapp/style.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+		<script th:src="@{/todo.js}"></script>
+	</head>
+	<body>
+	<div id="wrapper">
+		<header><h3>To Do List</h3></header>
+		<main id="todo" class="list">
+			<a th:href="@{/write}" class="btnWrite">Add</a>
+			<a th:href="@{/delete}" class="btnDelete1">Delete</a>
+			<a th:href="@{#}" class="btnCompleted">완료 항목 보기</a>
+			<form th:action="@{/write}" method="post">
+				<table border="0">
+					<tr>
+						<td><input type="text" name="content" class="inputContent" placeholder="Write down your to-do-list"/></td>
+						<td><input type="submit" value="add" class="btnAdd"/></td>	
+					</tr>
+				</table>
+			</form>
+			<table border="0">
+				<tr th:each="list:${lists}">
+					<td><input type="checkbox" class="check" id="check1" th:value="${list.status}" th:data-no="${list.no}" /></td>
+					<td><input type="hidden" name="no" th:value="${list.no}"/></td>
+					<td><a class="modify" th:href="@{/modify (no=${list.no})}" th:text="${list.content}"></a></td>
+					<td><a th:href="@{#}" class="modifyComplete" th:data-no="${list.no}" th:data-pg="${pg}">modify</a></td>	
+					<td><a th:href="@{/delete (no=${list.no})}" class="btnDelete2">delete</a></td>		
+				</tr>
+				<tr th:each="listC:${listsC}">
+					<td><input type="checkbox" class="checkedBox" id="check2" checked="checked" th:data-no="${listC.no}"/></td>
+					<td><input type="hidden" name="no" th:value="${listC.no}"/></td>
+					<td><a class="completedContent" th:href="@{/modify (no=${listC.no})}" th:text="${listC.content}" ></a></td>	
+					<td><a th:href="@{/delete (no=${listC.no})}" class="btnDelete2">delete</a></td>		
+				</tr>
+			</table>
+		</main>
+	</div>
+	</body>
+</html>
