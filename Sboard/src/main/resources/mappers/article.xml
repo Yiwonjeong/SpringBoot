@@ -31,7 +31,7 @@
 		limit #{start}, 10;
 	</select>
 	
-	<!-- 글 불러오기 -->
+	<!-- 글 불러오기 + 파일 정보 불러오기 위해 resultMap 사용 -->
 	<select id="selectArticle" resultMap="selectArticleResultMap">
 		select * from `board_article` as a
 		left join `board_file` as b
@@ -88,6 +88,11 @@
 		update `board_article` set `hit`=`hit`+1 where `no`=#{no};
 	</update>
 	
+	
+	
+	
+	<!-- ********************************* 파일 ********************************** -->
+	<!-- 파일 등록하기 -->
 	<insert id="insertFile">
 		insert into `board_file` set
 		`parent`=#{parent},
@@ -96,7 +101,6 @@
 	</insert>
 	
 	
-	<!-- ********************************* 파일 ********************************** -->
 	<!-- 파일 다운로드 '클릭'-->
 	<select id="selectFile" resultType="kr.co.sboard.vo.FileVO">
 		select * from `board_file` where `fno`=#{fno};

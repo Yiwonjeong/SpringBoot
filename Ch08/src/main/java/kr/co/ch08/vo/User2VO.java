@@ -30,7 +30,6 @@ public class User2VO {
 	private String hp;
 	private int age;
 	
-	// 날짜 추가
 	@CreationTimestamp
 	private LocalDateTime rdate;
 }

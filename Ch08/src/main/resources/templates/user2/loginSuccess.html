@@ -11,8 +11,7 @@
 	<body>
 		<h3>user2 loginSuccess</h3>
 		
-		<!-- 로그인을 해야 보이는 태그 (만약 로그인 안 하고 페이지 강제 이동 시 에러) -->
-		<!-- isAuthenticated(): 로그인 했을 경우 출력 -->
+		<!-- isAuthenticated(): 로그인 했을 경우 출력 (만약 로그인 안 하고 페이지 강제 이동 시 에러) -->
 		<p sec:authorize="isAuthenticated()">
 			<!-- <span sec:authentication="name">홍길동</span>님 반갑습니다.<br> -->
 			아이디 : <span>[[${#authentication.principal.uid}]]</span><br>

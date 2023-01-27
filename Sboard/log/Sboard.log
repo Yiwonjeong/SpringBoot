@@ -4925,3 +4925,548 @@ java.io.NotSerializableException: kr.co.sboard.entity.UserEntity
 2023-01-25 19:32:28.445 DEBUG 37394 --- [http-nio-8080-exec-4] s.s.w.c.SecurityContextPersistenceFilter : Set SecurityContextHolder to SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=kr.co.sboard.security.MyUserDetails@2b4dd7d4, Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=A4D789FF619AA92349E204E6691092C6], Granted Authorities=[ROLE_3]]]
 2023-01-25 19:32:28.445 DEBUG 37394 --- [http-nio-8080-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /updateComment
 2023-01-25 19:32:28.487 DEBUG 37394 --- [http-nio-8080-exec-4] s.s.w.c.SecurityContextPersistenceFilter : Cleared SecurityContextHolder to complete request
+2023-01-25 19:33:44.112  INFO 37394 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 8 class path changes (4 additions, 4 deletions, 0 modifications)
+2023-01-25 19:33:44.133  INFO 37394 --- [Thread-28] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-01-25 19:33:44.137  INFO 37394 --- [Thread-28] o.a.c.c.C.[.[localhost].[/Sboard]        : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-01-25 19:33:44.155  WARN 37394 --- [Thread-28] o.a.c.c.C.[.[localhost].[/Sboard]        : Cannot serialize session attribute [SPRING_SECURITY_CONTEXT] for session [FAE32A04BE62048989EA48BE78844C76]
+
+java.io.NotSerializableException: kr.co.sboard.entity.UserEntity
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1185) ~[na:na]
+	at java.base/java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1553) ~[na:na]
+	at java.base/java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1510) ~[na:na]
+	at java.base/java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1433) ~[na:na]
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1179) ~[na:na]
+	at java.base/java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1553) ~[na:na]
+	at java.base/java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1510) ~[na:na]
+	at java.base/java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1433) ~[na:na]
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1179) ~[na:na]
+	at java.base/java.io.ObjectOutputStream.defaultWriteFields(ObjectOutputStream.java:1553) ~[na:na]
+	at java.base/java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1510) ~[na:na]
+	at java.base/java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1433) ~[na:na]
+	at java.base/java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1179) ~[na:na]
+	at java.base/java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:349) ~[na:na]
+	at org.apache.catalina.session.StandardSession.doWriteObject(StandardSession.java:1761) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at org.apache.catalina.session.StandardSession.writeObjectData(StandardSession.java:1067) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at org.apache.catalina.session.StandardManager.doUnload(StandardManager.java:317) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at org.apache.catalina.session.StandardManager.unload(StandardManager.java:268) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at org.apache.catalina.session.StandardManager.stopInternal(StandardManager.java:384) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5459) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1409) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1398) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140) ~[na:na]
+	at org.apache.catalina.core.ContainerBase.stopInternal(ContainerBase.java:983) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1409) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1398) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140) ~[na:na]
+	at org.apache.catalina.core.ContainerBase.stopInternal(ContainerBase.java:983) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at org.apache.catalina.core.StandardService.stopInternal(StandardService.java:495) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at org.apache.catalina.core.StandardServer.stopInternal(StandardServer.java:982) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:257) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at org.apache.catalina.startup.Tomcat.stop(Tomcat.java:496) ~[tomcat-embed-core-9.0.70.jar:9.0.70]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.stopTomcat(TomcatWebServer.java:273) ~[spring-boot-2.7.7.jar:2.7.7]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.stop(TomcatWebServer.java:331) ~[spring-boot-2.7.7.jar:2.7.7]
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.stop(WebServerStartStopLifecycle.java:52) ~[spring-boot-2.7.7.jar:2.7.7]
+	at org.springframework.context.SmartLifecycle.stop(SmartLifecycle.java:117) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStop(DefaultLifecycleProcessor.java:234) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$300(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.stop(DefaultLifecycleProcessor.java:373) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.DefaultLifecycleProcessor.stopBeans(DefaultLifecycleProcessor.java:206) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onClose(DefaultLifecycleProcessor.java:129) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1067) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174) ~[spring-boot-2.7.7.jar:2.7.7]
+	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1021) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.boot.devtools.restart.Restarter.stop(Restarter.java:309) ~[spring-boot-devtools-2.7.7.jar:2.7.7]
+	at org.springframework.boot.devtools.restart.Restarter.lambda$restart$1(Restarter.java:251) ~[spring-boot-devtools-2.7.7.jar:2.7.7]
+	at org.springframework.boot.devtools.restart.Restarter$LeakSafeThread.run(Restarter.java:629) ~[spring-boot-devtools-2.7.7.jar:2.7.7]
+
+2023-01-25 19:33:44.185  INFO 37394 --- [Thread-28] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-25 19:33:44.185 DEBUG 37394 --- [Thread-28] o.hibernate.internal.SessionFactoryImpl  : HHH000031: Closing
+2023-01-25 19:33:44.190 DEBUG 37394 --- [Thread-28] o.h.type.spi.TypeConfiguration$Scope     : Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@6f36b245] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@67fcdaf8]
+2023-01-25 19:33:44.196 DEBUG 37394 --- [Thread-28] o.h.s.i.AbstractServiceRegistryImpl      : Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries
+2023-01-25 19:33:44.197 DEBUG 37394 --- [Thread-28] o.h.b.r.i.BootstrapServiceRegistryImpl   : Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries
+2023-01-25 19:33:44.198  INFO 37394 --- [Thread-28] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2023-01-25 19:33:44.229  INFO 37394 --- [Thread-28] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2023-01-25 19:33:44.554  INFO 37394 --- [restartedMain] kr.co.sboard.SboardApplication           : Starting SboardApplication using Java 11.0.16 on iwonjeong-ui-MacBookPro.local with PID 37394 (/Users/iilhwan/Desktop/Workspace/SpringBoot/Sboard/target/classes started by iilhwan in /Users/iilhwan/Desktop/Workspace/SpringBoot/Sboard)
+2023-01-25 19:33:44.554  INFO 37394 --- [restartedMain] kr.co.sboard.SboardApplication           : No active profile set, falling back to 1 default profile: "default"
+2023-01-25 19:33:44.802  INFO 37394 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-01-25 19:33:44.814  INFO 37394 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 2 JPA repository interfaces.
+2023-01-25 19:33:44.945  INFO 37394 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-25 19:33:44.946  INFO 37394 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-25 19:33:44.946  INFO 37394 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.70]
+2023-01-25 19:33:44.959  INFO 37394 --- [restartedMain] o.a.c.c.C.[.[localhost].[/Sboard]        : Initializing Spring embedded WebApplicationContext
+2023-01-25 19:33:44.959  INFO 37394 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 402 ms
+2023-01-25 19:33:44.977  WARN 37394 --- [restartedMain] o.a.c.c.C.[.[localhost].[/Sboard]        : Cannot deserialize session attribute [SPRING_SECURITY_CONTEXT] for session [FAE32A04BE62048989EA48BE78844C76]
+2023-01-25 19:33:45.012 DEBUG 37394 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : PersistenceUnitInfo [
+	name: default
+	persistence provider classname: null
+	classloader: org.springframework.boot.devtools.restart.classloader.RestartClassLoader@7d53e900
+	excludeUnlistedClasses: true
+	JTA datasource: null
+	Non JTA datasource: HikariDataSource (null)
+	Transaction type: RESOURCE_LOCAL
+	PU root URL: file:/Users/iilhwan/Desktop/Workspace/SpringBoot/Sboard/target/classes/
+	Shared Cache Mode: UNSPECIFIED
+	Validation Mode: AUTO
+	Jar files URLs []
+	Managed classes names [
+		kr.co.sboard.entity.ArticleEntity
+		kr.co.sboard.entity.UserEntity]
+	Mapping files names []
+	Properties []
+2023-01-25 19:33:45.012 DEBUG 37394 --- [restartedMain] o.h.i.internal.IntegratorServiceImpl     : Adding Integrator [org.hibernate.cfg.beanvalidation.BeanValidationIntegrator].
+2023-01-25 19:33:45.012 DEBUG 37394 --- [restartedMain] o.h.i.internal.IntegratorServiceImpl     : Adding Integrator [org.hibernate.secure.spi.JaccIntegrator].
+2023-01-25 19:33:45.012 DEBUG 37394 --- [restartedMain] o.h.i.internal.IntegratorServiceImpl     : Adding Integrator [org.hibernate.cache.internal.CollectionCacheInvalidator].
+2023-01-25 19:33:45.015 DEBUG 37394 --- [restartedMain] o.hibernate.service.spi.ServiceBinding   : Overriding existing service binding [org.hibernate.secure.spi.JaccService]
+2023-01-25 19:33:45.015 DEBUG 37394 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+2023-01-25 19:33:45.016 DEBUG 37394 --- [restartedMain] o.h.c.internal.RegionFactoryInitiator    : Cache region factory : org.hibernate.cache.internal.NoCachingRegionFactory
+2023-01-25 19:33:45.016 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -> org.hibernate.type.BooleanType@918c504
+2023-01-25 19:33:45.017 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration boolean -> org.hibernate.type.BooleanType@918c504
+2023-01-25 19:33:45.017 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@918c504
+2023-01-25 19:33:45.017 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@5f9ad335
+2023-01-25 19:33:45.017 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration true_false -> org.hibernate.type.TrueFalseType@1c08b5e7
+2023-01-25 19:33:45.017 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration yes_no -> org.hibernate.type.YesNoType@79b36478
+2023-01-25 19:33:45.017 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -> org.hibernate.type.ByteType@13191ffd
+2023-01-25 19:33:45.017 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte -> org.hibernate.type.ByteType@13191ffd
+2023-01-25 19:33:45.017 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@13191ffd
+2023-01-25 19:33:45.017 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration character -> org.hibernate.type.CharacterType@7c2bae7a
+2023-01-25 19:33:45.017 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration char -> org.hibernate.type.CharacterType@7c2bae7a
+2023-01-25 19:33:45.017 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@7c2bae7a
+2023-01-25 19:33:45.017 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -> org.hibernate.type.ShortType@6ad0d243
+2023-01-25 19:33:45.017 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration short -> org.hibernate.type.ShortType@6ad0d243
+2023-01-25 19:33:45.017 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Short -> org.hibernate.type.ShortType@6ad0d243
+2023-01-25 19:33:45.017 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration integer -> org.hibernate.type.IntegerType@2685fc5b
+2023-01-25 19:33:45.017 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration int -> org.hibernate.type.IntegerType@2685fc5b
+2023-01-25 19:33:45.017 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@2685fc5b
+2023-01-25 19:33:45.017 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -> org.hibernate.type.LongType@189af4b0
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration long -> org.hibernate.type.LongType@189af4b0
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Long -> org.hibernate.type.LongType@189af4b0
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -> org.hibernate.type.FloatType@b4b7d1c
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration float -> org.hibernate.type.FloatType@b4b7d1c
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Float -> org.hibernate.type.FloatType@b4b7d1c
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -> org.hibernate.type.DoubleType@600f2033
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration double -> org.hibernate.type.DoubleType@600f2033
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@600f2033
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@6355fabb
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@6355fabb
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration big_integer -> org.hibernate.type.BigIntegerType@77af77ca
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@77af77ca
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration string -> org.hibernate.type.StringType@66452cb0
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.String -> org.hibernate.type.StringType@66452cb0
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration nstring -> org.hibernate.type.StringNVarcharType@422f8b73
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration ncharacter -> org.hibernate.type.CharacterNCharType@7ba54eb4
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration url -> org.hibernate.type.UrlType@fac2a33
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.net.URL -> org.hibernate.type.UrlType@fac2a33
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration Duration -> org.hibernate.type.DurationType@4305750f
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Duration -> org.hibernate.type.DurationType@4305750f
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration Instant -> org.hibernate.type.InstantType@305ab5ba
+2023-01-25 19:33:45.018 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.Instant -> org.hibernate.type.InstantType@305ab5ba
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDateTime -> org.hibernate.type.LocalDateTimeType@376285c7
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDateTime -> org.hibernate.type.LocalDateTimeType@376285c7
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalDate -> org.hibernate.type.LocalDateType@571308e1
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalDate -> org.hibernate.type.LocalDateType@571308e1
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration LocalTime -> org.hibernate.type.LocalTimeType@1363b3b4
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.LocalTime -> org.hibernate.type.LocalTimeType@1363b3b4
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@6558c0df
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetDateTime -> org.hibernate.type.OffsetDateTimeType@6558c0df
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration OffsetTime -> org.hibernate.type.OffsetTimeType@8e6074a
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.OffsetTime -> org.hibernate.type.OffsetTimeType@8e6074a
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@1bb8d2d6
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.time.ZonedDateTime -> org.hibernate.type.ZonedDateTimeType@1bb8d2d6
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration date -> org.hibernate.type.DateType@20ac6934
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Date -> org.hibernate.type.DateType@20ac6934
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration time -> org.hibernate.type.TimeType@d6397e7
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Time -> org.hibernate.type.TimeType@d6397e7
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration timestamp -> org.hibernate.type.TimestampType@1446d7e9
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@1446d7e9
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Date -> org.hibernate.type.TimestampType@1446d7e9
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@2ab3e171
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar -> org.hibernate.type.CalendarType@64bb901
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@64bb901
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@64bb901
+2023-01-25 19:33:45.019 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@1e53c11c
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration calendar_time -> org.hibernate.type.CalendarTimeType@5e430de
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration locale -> org.hibernate.type.LocaleType@cc6f041
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@cc6f041
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration currency -> org.hibernate.type.CurrencyType@29539312
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@29539312
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration timezone -> org.hibernate.type.TimeZoneType@7b5f8e36
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@7b5f8e36
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration class -> org.hibernate.type.ClassType@2151222e
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Class -> org.hibernate.type.ClassType@2151222e
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@484bd09e
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@484bd09e
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@4a163604
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration binary -> org.hibernate.type.BinaryType@1aa264ad
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration byte[] -> org.hibernate.type.BinaryType@1aa264ad
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration [B -> org.hibernate.type.BinaryType@1aa264ad
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@1c7d450b
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@1c7d450b
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@1c7d450b
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration row_version -> org.hibernate.type.RowVersionType@340c568b
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration image -> org.hibernate.type.ImageType@446e1f7d
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration characters -> org.hibernate.type.CharArrayType@7609266
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration char[] -> org.hibernate.type.CharArrayType@7609266
+2023-01-25 19:33:45.020 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration [C -> org.hibernate.type.CharArrayType@7609266
+2023-01-25 19:33:45.021 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@5efa73eb
+2023-01-25 19:33:45.021 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@5efa73eb
+2023-01-25 19:33:45.021 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@5efa73eb
+2023-01-25 19:33:45.021 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration text -> org.hibernate.type.TextType@11bc5b27
+2023-01-25 19:33:45.021 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration ntext -> org.hibernate.type.NTextType@8fb8173
+2023-01-25 19:33:45.021 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration blob -> org.hibernate.type.BlobType@8ab22a1
+2023-01-25 19:33:45.021 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@8ab22a1
+2023-01-25 19:33:45.021 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@16152a6c
+2023-01-25 19:33:45.021 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration clob -> org.hibernate.type.ClobType@665644f0
+2023-01-25 19:33:45.021 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@665644f0
+2023-01-25 19:33:45.021 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration nclob -> org.hibernate.type.NClobType@30c76276
+2023-01-25 19:33:45.021 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.sql.NClob -> org.hibernate.type.NClobType@30c76276
+2023-01-25 19:33:45.021 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@1c53d641
+2023-01-25 19:33:45.021 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration materialized_nclob -> org.hibernate.type.MaterializedNClobType@69041f79
+2023-01-25 19:33:45.021 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration serializable -> org.hibernate.type.SerializableType@d544ae0
+2023-01-25 19:33:45.021 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration object -> org.hibernate.type.ObjectType@7270fa36
+2023-01-25 19:33:45.021 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@7270fa36
+2023-01-25 19:33:45.021 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@4126da4a
+2023-01-25 19:33:45.022 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@61b9bf0a
+2023-01-25 19:33:45.022 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@501e70e8
+2023-01-25 19:33:45.022 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@2bc1cbe6
+2023-01-25 19:33:45.022 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@5cc2a05e
+2023-01-25 19:33:45.022 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@70af0523
+2023-01-25 19:33:45.022 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@5395a2ee
+2023-01-25 19:33:45.022 DEBUG 37394 --- [restartedMain] org.hibernate.type.BasicTypeRegistry     : Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@76aedd81
+2023-01-25 19:33:45.027 DEBUG 37394 --- [restartedMain] o.h.boot.internal.BootstrapContextImpl   : Injecting JPA temp ClassLoader [org.springframework.instrument.classloading.SimpleThrowawayClassLoader@37a9df80] into BootstrapContext; was [null]
+2023-01-25 19:33:45.027 DEBUG 37394 --- [restartedMain] o.h.boot.internal.ClassLoaderAccessImpl  : ClassLoaderAccessImpl#injectTempClassLoader(org.springframework.instrument.classloading.SimpleThrowawayClassLoader@37a9df80) [was null]
+2023-01-25 19:33:45.027 DEBUG 37394 --- [restartedMain] o.h.boot.internal.BootstrapContextImpl   : Injecting ScanEnvironment [org.hibernate.jpa.boot.internal.StandardJpaScanEnvironmentImpl@49558949] into BootstrapContext; was [null]
+2023-01-25 19:33:45.027 DEBUG 37394 --- [restartedMain] o.h.boot.internal.BootstrapContextImpl   : Injecting ScanOptions [org.hibernate.boot.archive.scan.internal.StandardScanOptions@49171737] into BootstrapContext; was [org.hibernate.boot.archive.scan.internal.StandardScanOptions@4c2fb0dc]
+2023-01-25 19:33:45.028 DEBUG 37394 --- [restartedMain] o.h.boot.internal.BootstrapContextImpl   : Injecting JPA temp ClassLoader [null] into BootstrapContext; was [org.springframework.instrument.classloading.SimpleThrowawayClassLoader@37a9df80]
+2023-01-25 19:33:45.030 DEBUG 37394 --- [restartedMain] o.h.boot.internal.ClassLoaderAccessImpl  : ClassLoaderAccessImpl#injectTempClassLoader(null) [was org.springframework.instrument.classloading.SimpleThrowawayClassLoader@37a9df80]
+2023-01-25 19:33:45.031 DEBUG 37394 --- [restartedMain] .i.f.i.DefaultIdentifierGeneratorFactory : Registering IdentifierGenerator strategy [uuid2] -> [org.hibernate.id.UUIDGenerator]
+2023-01-25 19:33:45.031 DEBUG 37394 --- [restartedMain] .i.f.i.DefaultIdentifierGeneratorFactory : Registering IdentifierGenerator strategy [guid] -> [org.hibernate.id.GUIDGenerator]
+2023-01-25 19:33:45.031 DEBUG 37394 --- [restartedMain] .i.f.i.DefaultIdentifierGeneratorFactory : Registering IdentifierGenerator strategy [uuid] -> [org.hibernate.id.UUIDHexGenerator]
+2023-01-25 19:33:45.031 DEBUG 37394 --- [restartedMain] .i.f.i.DefaultIdentifierGeneratorFactory : Registering IdentifierGenerator strategy [uuid.hex] -> [org.hibernate.id.UUIDHexGenerator]
+2023-01-25 19:33:45.031 DEBUG 37394 --- [restartedMain] .i.f.i.DefaultIdentifierGeneratorFactory : Registering IdentifierGenerator strategy [assigned] -> [org.hibernate.id.Assigned]
+2023-01-25 19:33:45.031 DEBUG 37394 --- [restartedMain] .i.f.i.DefaultIdentifierGeneratorFactory : Registering IdentifierGenerator strategy [identity] -> [org.hibernate.id.IdentityGenerator]
+2023-01-25 19:33:45.031 DEBUG 37394 --- [restartedMain] .i.f.i.DefaultIdentifierGeneratorFactory : Registering IdentifierGenerator strategy [select] -> [org.hibernate.id.SelectGenerator]
+2023-01-25 19:33:45.031 DEBUG 37394 --- [restartedMain] .i.f.i.DefaultIdentifierGeneratorFactory : Registering IdentifierGenerator strategy [sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+2023-01-25 19:33:45.031 DEBUG 37394 --- [restartedMain] .i.f.i.DefaultIdentifierGeneratorFactory : Registering IdentifierGenerator strategy [seqhilo] -> [org.hibernate.id.SequenceHiLoGenerator]
+2023-01-25 19:33:45.031 DEBUG 37394 --- [restartedMain] .i.f.i.DefaultIdentifierGeneratorFactory : Registering IdentifierGenerator strategy [increment] -> [org.hibernate.id.IncrementGenerator]
+2023-01-25 19:33:45.031 DEBUG 37394 --- [restartedMain] .i.f.i.DefaultIdentifierGeneratorFactory : Registering IdentifierGenerator strategy [foreign] -> [org.hibernate.id.ForeignGenerator]
+2023-01-25 19:33:45.031 DEBUG 37394 --- [restartedMain] .i.f.i.DefaultIdentifierGeneratorFactory : Registering IdentifierGenerator strategy [sequence-identity] -> [org.hibernate.id.SequenceIdentityGenerator]
+2023-01-25 19:33:45.031 DEBUG 37394 --- [restartedMain] .i.f.i.DefaultIdentifierGeneratorFactory : Registering IdentifierGenerator strategy [enhanced-sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+2023-01-25 19:33:45.032 DEBUG 37394 --- [restartedMain] .i.f.i.DefaultIdentifierGeneratorFactory : Registering IdentifierGenerator strategy [enhanced-table] -> [org.hibernate.id.enhanced.TableGenerator]
+2023-01-25 19:33:45.032  INFO 37394 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2023-01-25 19:33:45.055  INFO 37394 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2023-01-25 19:33:45.056 DEBUG 37394 --- [restartedMain] o.h.e.j.e.i.JdbcEnvironmentInitiator     : Database ->
+       name : MySQL
+    version : 8.0.30
+      major : 8
+      minor : 0
+2023-01-25 19:33:45.056 DEBUG 37394 --- [restartedMain] o.h.e.j.e.i.JdbcEnvironmentInitiator     : Driver ->
+       name : MySQL Connector/J
+    version : mysql-connector-j-8.0.31 (Revision: 0c86fc148d567b62266c2302bdad0f1e7a7e4eba)
+      major : 8
+      minor : 0
+2023-01-25 19:33:45.056 DEBUG 37394 --- [restartedMain] o.h.e.j.e.i.JdbcEnvironmentInitiator     : JDBC version : 4.2
+2023-01-25 19:33:45.057  INFO 37394 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2023-01-25 19:33:45.058 DEBUG 37394 --- [restartedMain] o.h.e.j.env.spi.IdentifierHelperBuilder  : JDBC driver metadata reported database stores quoted identifiers in more than one case
+2023-01-25 19:33:45.058 DEBUG 37394 --- [restartedMain] o.h.e.j.env.spi.IdentifierHelperBuilder  : IdentifierCaseStrategy for both quoted and unquoted identifiers was set to the same strategy [MIXED]; that will likely lead to problems in schema update and validation if using quoted identifiers
+2023-01-25 19:33:45.059 DEBUG 37394 --- [restartedMain] o.h.type.spi.TypeConfiguration$Scope     : Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@21a6f0a9] to MetadataBuildingContext [org.hibernate.boot.internal.MetadataBuildingContextRootImpl@103e0d11]
+2023-01-25 19:33:45.063 DEBUG 37394 --- [restartedMain] o.h.boot.model.relational.Namespace      : Created database namespace [logicalName=Name{catalog=null, schema=null}, physicalName=Name{catalog=null, schema=null}]
+2023-01-25 19:33:45.064 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.AnnotationBinder       : Binding entity from annotated class: kr.co.sboard.entity.ArticleEntity
+2023-01-25 19:33:45.064 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'}
+2023-01-25 19:33:45.065 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.EntityBinder         : Import with entity name ArticleEntity
+2023-01-25 19:33:45.065 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.EntityBinder         : Bind entity kr.co.sboard.entity.ArticleEntity on table board_article
+2023-01-25 19:33:45.067 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_article), mappingColumn=no, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.067 DEBUG 37394 --- [restartedMain] o.h.boot.internal.ClassLoaderAccessImpl  : Not known whether passed class name [kr.co.sboard.entity.ArticleEntity] is safe
+2023-01-25 19:33:45.067 DEBUG 37394 --- [restartedMain] o.h.boot.internal.ClassLoaderAccessImpl  : No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : kr.co.sboard.entity.ArticleEntity
+2023-01-25 19:33:45.067 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property no with lazy=false
+2023-01-25 19:33:45.068 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.ArticleEntity:no]
+2023-01-25 19:33:45.068 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for no
+2023-01-25 19:33:45.068 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property no
+2023-01-25 19:33:45.069 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.BinderHelper           : #makeIdGenerator(org.hibernate.mapping.SimpleValue([org.hibernate.mapping.Column(no)]), no, assigned, , ...)
+2023-01-25 19:33:45.069 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_article), mappingColumn=cate, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.069 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property cate with lazy=false
+2023-01-25 19:33:45.069 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.ArticleEntity:cate]
+2023-01-25 19:33:45.069 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for cate
+2023-01-25 19:33:45.069 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property cate
+2023-01-25 19:33:45.069 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_article), mappingColumn=comment, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.069 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property comment with lazy=false
+2023-01-25 19:33:45.070 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.ArticleEntity:comment]
+2023-01-25 19:33:45.070 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for comment
+2023-01-25 19:33:45.070 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property comment
+2023-01-25 19:33:45.071 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_article), mappingColumn=content, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.071 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property content with lazy=false
+2023-01-25 19:33:45.071 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.ArticleEntity:content]
+2023-01-25 19:33:45.071 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for content
+2023-01-25 19:33:45.071 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property content
+2023-01-25 19:33:45.071 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_article), mappingColumn=file, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.072 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property file with lazy=false
+2023-01-25 19:33:45.072 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.ArticleEntity:file]
+2023-01-25 19:33:45.072 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for file
+2023-01-25 19:33:45.072 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property file
+2023-01-25 19:33:45.072 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_article), mappingColumn=hit, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.072 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property hit with lazy=false
+2023-01-25 19:33:45.072 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.ArticleEntity:hit]
+2023-01-25 19:33:45.072 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for hit
+2023-01-25 19:33:45.072 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property hit
+2023-01-25 19:33:45.073 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_article), mappingColumn=parent, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.073 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property parent with lazy=false
+2023-01-25 19:33:45.073 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.ArticleEntity:parent]
+2023-01-25 19:33:45.073 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for parent
+2023-01-25 19:33:45.073 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property parent
+2023-01-25 19:33:45.073 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_article), mappingColumn=rdate, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.073 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property rdate with lazy=false
+2023-01-25 19:33:45.073 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.ArticleEntity:rdate]
+2023-01-25 19:33:45.073 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for rdate
+2023-01-25 19:33:45.073 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property rdate
+2023-01-25 19:33:45.074 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_article), mappingColumn=regip, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.074 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property regip with lazy=false
+2023-01-25 19:33:45.074 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.ArticleEntity:regip]
+2023-01-25 19:33:45.074 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for regip
+2023-01-25 19:33:45.074 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property regip
+2023-01-25 19:33:45.074 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_article), mappingColumn=title, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.075 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property title with lazy=false
+2023-01-25 19:33:45.075 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.ArticleEntity:title]
+2023-01-25 19:33:45.075 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for title
+2023-01-25 19:33:45.075 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property title
+2023-01-25 19:33:45.075 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_article), mappingColumn=uid, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.076 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property uid with lazy=false
+2023-01-25 19:33:45.076 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.ArticleEntity:uid]
+2023-01-25 19:33:45.076 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for uid
+2023-01-25 19:33:45.076 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property uid
+2023-01-25 19:33:45.076 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.AnnotationBinder       : Binding entity from annotated class: kr.co.sboard.entity.UserEntity
+2023-01-25 19:33:45.077 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'}
+2023-01-25 19:33:45.077 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.EntityBinder         : Import with entity name UserEntity
+2023-01-25 19:33:45.077 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.EntityBinder         : Bind entity kr.co.sboard.entity.UserEntity on table board_user
+2023-01-25 19:33:45.079 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_user), mappingColumn=uid, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.079 DEBUG 37394 --- [restartedMain] o.h.boot.internal.ClassLoaderAccessImpl  : Not known whether passed class name [kr.co.sboard.entity.UserEntity] is safe
+2023-01-25 19:33:45.079 DEBUG 37394 --- [restartedMain] o.h.boot.internal.ClassLoaderAccessImpl  : No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : kr.co.sboard.entity.UserEntity
+2023-01-25 19:33:45.079 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property uid with lazy=false
+2023-01-25 19:33:45.079 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.UserEntity:uid]
+2023-01-25 19:33:45.079 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for uid
+2023-01-25 19:33:45.080 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property uid
+2023-01-25 19:33:45.080 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.BinderHelper           : #makeIdGenerator(org.hibernate.mapping.SimpleValue([org.hibernate.mapping.Column(uid)]), uid, assigned, , ...)
+2023-01-25 19:33:45.080 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_user), mappingColumn=addr1, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.080 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property addr1 with lazy=false
+2023-01-25 19:33:45.080 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.UserEntity:addr1]
+2023-01-25 19:33:45.080 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for addr1
+2023-01-25 19:33:45.080 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property addr1
+2023-01-25 19:33:45.080 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_user), mappingColumn=addr2, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.081 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property addr2 with lazy=false
+2023-01-25 19:33:45.081 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.UserEntity:addr2]
+2023-01-25 19:33:45.081 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for addr2
+2023-01-25 19:33:45.081 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property addr2
+2023-01-25 19:33:45.081 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_user), mappingColumn=email, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.081 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property email with lazy=false
+2023-01-25 19:33:45.081 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.UserEntity:email]
+2023-01-25 19:33:45.081 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for email
+2023-01-25 19:33:45.081 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property email
+2023-01-25 19:33:45.081 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_user), mappingColumn=grade, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.081 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property grade with lazy=false
+2023-01-25 19:33:45.081 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.UserEntity:grade]
+2023-01-25 19:33:45.082 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for grade
+2023-01-25 19:33:45.082 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property grade
+2023-01-25 19:33:45.082 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_user), mappingColumn=hp, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.082 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property hp with lazy=false
+2023-01-25 19:33:45.082 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.UserEntity:hp]
+2023-01-25 19:33:45.082 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for hp
+2023-01-25 19:33:45.082 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property hp
+2023-01-25 19:33:45.082 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_user), mappingColumn=name, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.082 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property name with lazy=false
+2023-01-25 19:33:45.082 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.UserEntity:name]
+2023-01-25 19:33:45.082 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for name
+2023-01-25 19:33:45.082 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property name
+2023-01-25 19:33:45.083 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_user), mappingColumn=nick, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.083 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property nick with lazy=false
+2023-01-25 19:33:45.083 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.UserEntity:nick]
+2023-01-25 19:33:45.083 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for nick
+2023-01-25 19:33:45.083 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property nick
+2023-01-25 19:33:45.083 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_user), mappingColumn=pass, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.083 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property pass with lazy=false
+2023-01-25 19:33:45.083 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.UserEntity:pass]
+2023-01-25 19:33:45.083 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for pass
+2023-01-25 19:33:45.083 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property pass
+2023-01-25 19:33:45.084 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_user), mappingColumn=rdate, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.084 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property rdate with lazy=false
+2023-01-25 19:33:45.084 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.UserEntity:rdate]
+2023-01-25 19:33:45.084 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for rdate
+2023-01-25 19:33:45.084 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property rdate
+2023-01-25 19:33:45.085 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_user), mappingColumn=regip, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.085 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property regip with lazy=false
+2023-01-25 19:33:45.085 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.UserEntity:regip]
+2023-01-25 19:33:45.085 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for regip
+2023-01-25 19:33:45.085 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property regip
+2023-01-25 19:33:45.085 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Ejb3Column             : Binding column: Ejb3Column{table=org.hibernate.mapping.Table(board_user), mappingColumn=zip, insertable=true, updatable=true, unique=false}
+2023-01-25 19:33:45.085 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : MetadataSourceProcessor property zip with lazy=false
+2023-01-25 19:33:45.085 DEBUG 37394 --- [restartedMain] o.hibernate.cfg.AbstractPropertyHolder   : Attempting to locate auto-apply AttributeConverter for property [kr.co.sboard.entity.UserEntity:zip]
+2023-01-25 19:33:45.085 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : building SimpleValue for zip
+2023-01-25 19:33:45.085 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.PropertyBinder       : Building property zip
+2023-01-25 19:33:45.089 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for no
+2023-01-25 19:33:45.090 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for cate
+2023-01-25 19:33:45.091 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for comment
+2023-01-25 19:33:45.091 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for content
+2023-01-25 19:33:45.091 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for file
+2023-01-25 19:33:45.091 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for hit
+2023-01-25 19:33:45.091 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for parent
+2023-01-25 19:33:45.091 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for rdate
+2023-01-25 19:33:45.091 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for regip
+2023-01-25 19:33:45.091 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for title
+2023-01-25 19:33:45.091 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for uid
+2023-01-25 19:33:45.091 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for uid
+2023-01-25 19:33:45.091 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for addr1
+2023-01-25 19:33:45.091 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for addr2
+2023-01-25 19:33:45.091 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for email
+2023-01-25 19:33:45.091 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for grade
+2023-01-25 19:33:45.091 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for hp
+2023-01-25 19:33:45.091 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for name
+2023-01-25 19:33:45.091 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for nick
+2023-01-25 19:33:45.092 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for pass
+2023-01-25 19:33:45.092 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for rdate
+2023-01-25 19:33:45.092 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for regip
+2023-01-25 19:33:45.092 DEBUG 37394 --- [restartedMain] o.h.cfg.annotations.SimpleValueBinder    : Starting fillSimpleValue for zip
+2023-01-25 19:33:45.092 DEBUG 37394 --- [restartedMain] org.hibernate.mapping.PrimaryKey         : Forcing column [no] to be non-null as it is part of the primary key for table [board_article]
+2023-01-25 19:33:45.092 DEBUG 37394 --- [restartedMain] org.hibernate.mapping.PrimaryKey         : Forcing column [uid] to be non-null as it is part of the primary key for table [board_user]
+2023-01-25 19:33:45.095 DEBUG 37394 --- [restartedMain] o.hibernate.internal.SessionFactoryImpl  : Building session factory
+2023-01-25 19:33:45.095 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : SessionFactory name : null
+2023-01-25 19:33:45.095 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Automatic flush during beforeCompletion(): enabled
+2023-01-25 19:33:45.095 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Automatic session close at end of transaction: disabled
+2023-01-25 19:33:45.095 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Statistics: disabled
+2023-01-25 19:33:45.095 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Deleted entity synthetic identifier rollback: disabled
+2023-01-25 19:33:45.095 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Default entity-mode: pojo
+2023-01-25 19:33:45.095 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Allow initialization of lazy state outside session : disabled
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Using BatchFetchStyle : LEGACY
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Default batch fetch size: -1
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Maximum outer join fetch depth: 2
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Default null ordering: NONE
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Order SQL updates by primary key: disabled
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Order SQL inserts for batching: disabled
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : multi-tenancy strategy : NONE
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : JTA Track by Thread: enabled
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Query language substitutions: {}
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Named query checking : enabled
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Second-level cache: disabled
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Second-level query cache: disabled
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Second-level query cache factory: null
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Second-level cache region prefix: null
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Optimize second-level cache for minimal puts: disabled
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Structured second-level cache entries: disabled
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Second-level cache direct-reference entries: disabled
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Automatic eviction of collection cache: disabled
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : JDBC batch size: 15
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : JDBC batch updates for versioned data: enabled
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Scrollable result sets: enabled
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Wrap result sets: disabled
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : JDBC3 getGeneratedKeys(): enabled
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : JDBC result set fetch size: null
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Connection release mode: ON_CLOSE
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : Generate SQL with comments: enabled
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : JPA compliance - query : disabled
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : JPA compliance - closed-handling : disabled
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : JPA compliance - lists : disabled
+2023-01-25 19:33:45.096 DEBUG 37394 --- [restartedMain] org.hibernate.cfg.Settings               : JPA compliance - transactions : disabled
+2023-01-25 19:33:45.101 DEBUG 37394 --- [restartedMain] .h.s.i.SessionFactoryServiceRegistryImpl : EventListenerRegistry access via ServiceRegistry is deprecated.  Use `sessionFactory.getEventEngine().getListenerRegistry()` instead
+2023-01-25 19:33:45.101 DEBUG 37394 --- [restartedMain] .h.s.i.SessionFactoryServiceRegistryImpl : EventListenerRegistry access via ServiceRegistry is deprecated.  Use `sessionFactory.getEventEngine().getListenerRegistry()` instead
+2023-01-25 19:33:45.102 DEBUG 37394 --- [restartedMain] o.hibernate.internal.SessionFactoryImpl  : Session factory constructed with filter configurations : {}
+2023-01-25 19:33:45.103 DEBUG 37394 --- [restartedMain] o.hibernate.internal.SessionFactoryImpl  : Instantiating session factory with properties: {awt.toolkit=sun.lwawt.macosx.LWCToolkit, hibernate.format_sql=true, hibernate.id.new_generator_mappings=true, java.specification.version=11, sun.cpu.isalist=, hibernate.resource.beans.container=org.springframework.orm.hibernate5.SpringBeanContainer@65db3211, sun.jnu.encoding=UTF-8, hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy, sun.arch.data.model=64, java.vendor.url=https://openjdk.java.net/, catalina.useNaming=false, javax.persistence.validation.mode=AUTO, sun.boot.library.path=/Library/Java/JavaVirtualMachines/jdk-11.0.16.jdk/Contents/Home/lib, com.sun.management.jmxremote.ssl=false, sun.java.command=kr.co.sboard.SboardApplication --spring.output.ansi.enabled=always, jdk.debug=release, java.specification.vendor=Oracle Corporation, java.version.date=2022-07-19, java.home=/Library/Java/JavaVirtualMachines/jdk-11.0.16.jdk/Contents/Home, file.separator=/, java.vm.compressedOopsMode=Zero based, line.separator=
+, hibernate.persistenceUnitName=default, java.specification.name=Java Platform API Specification, java.vm.specification.vendor=Oracle Corporation, hibernate.transaction.coordinator_class=class org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorBuilderImpl, hibernate.hbm2ddl.auto=update, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, java.runtime.version=11.0.16+11-LTS-199, user.name=iilhwan, management.endpoints.jmx.exposure.include=*, file.encoding=UTf-8, java.vendor.version=18.9, java.io.tmpdir=/var/folders/g1/s9521ly14q907m1f7x4cmvy80000gn/T/, com.sun.management.jmxremote.port=62587, java.version=11.0.16, java.vm.specification.name=Java Virtual Machine Specification, PID=37394, java.awt.printerjob=sun.lwawt.macosx.CPrinterJob, sun.os.patch.level=unknown, CONSOLE_LOG_CHARSET=UTF-8, java.library.path=/Users/iilhwan/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:., java.vendor=Oracle Corporation, java.rmi.server.randomIDs=true, sun.io.unicode.encoding=UnicodeBig, hibernate.archive.scanner=org.hibernate.boot.archive.scan.internal.DisabledScanner, socksNonProxyHosts=local|*.local|169.254/16|*.169.254/16|localhost|*.localhost|lx.astxsvc.com|*.lx.astxsvc.com, gopherProxySet=false, hibernate.connection.handling_mode=DELAYED_ACQUISITION_AND_HOLD, hibernate.dialect=org.hibernate.dialect.MySQL57Dialect, java.class.path=/Users/iilhwan/Desktop/Workspace/SpringBoot/Sboard/target/classes:/Users/iilhwan/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/2.7.7/spring-boot-starter-data-jpa-2.7.7.jar:/Users/iilhwan/.m2/repository/org/springframework/boot/spring-boot-starter-aop/2.7.7/spring-boot-starter-aop-2.7.7.jar:/Users/iilhwan/.m2/repository/org/aspectj/aspectjweaver/1.9.7/aspectjweaver-1.9.7.jar:/Users/iilhwan/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/2.7.7/spring-boot-starter-jdbc-2.7.7.jar:/Users/iilhwan/.m2/repository/com/zaxxer/HikariCP/4.0.3/HikariCP-4.0.3.jar:/Users/iilhwan/.m2/repository/org/springframework/spring-jdbc/5.3.24/spring-jdbc-5.3.24.jar:/Users/iilhwan/.m2/repository/jakarta/transaction/jakarta.transaction-api/1.3.3/jakarta.transaction-api-1.3.3.jar:/Users/iilhwan/.m2/repository/jakarta/persistence/jakarta.persistence-api/2.2.3/jakarta.persistence-api-2.2.3.jar:/Users/iilhwan/.m2/repository/org/hibernate/hibernate-core/5.6.14.Final/hibernate-core-5.6.14.Final.jar:/Users/iilhwan/.m2/repository/org/jboss/logging/jboss-logging/3.4.3.Final/jboss-logging-3.4.3.Final.jar:/Users/iilhwan/.m2/repository/net/bytebuddy/byte-buddy/1.12.20/byte-buddy-1.12.20.jar:/Users/iilhwan/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar:/Users/iilhwan/.m2/repository/org/jboss/jandex/2.4.2.Final/jandex-2.4.2.Final.jar:/Users/iilhwan/.m2/repository/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar:/Users/iilhwan/.m2/repository/org/hibernate/common/hibernate-commons-annotations/5.1.2.Final/hibernate-commons-annotations-5.1.2.Final.jar:/Users/iilhwan/.m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.7/jaxb-runtime-2.3.7.jar:/Users/iilhwan/.m2/repository/org/glassfish/jaxb/txw2/2.3.7/txw2-2.3.7.jar:/Users/iilhwan/.m2/repository/com/sun/istack/istack-commons-runtime/3.0.12/istack-commons-runtime-3.0.12.jar:/Users/iilhwan/.m2/repository/com/sun/activation/jakarta.activation/1.2.2/jakarta.activation-1.2.2.jar:/Users/iilhwan/.m2/repository/org/springframework/data/spring-data-jpa/2.7.6/spring-data-jpa-2.7.6.jar:/Users/iilhwan/.m2/repository/org/springframework/data/spring-data-commons/2.7.6/spring-data-commons-2.7.6.jar:/Users/iilhwan/.m2/repository/org/springframework/spring-orm/5.3.24/spring-orm-5.3.24.jar:/Users/iilhwan/.m2/repository/org/springframework/spring-context/5.3.24/spring-context-5.3.24.jar:/Users/iilhwan/.m2/repository/org/springframework/spring-tx/5.3.24/spring-tx-5.3.24.jar:/Users/iilhwan/.m2/repository/org/springframework/spring-beans/5.3.24/spring-beans-5.3.24.jar:/Users/iilhwan/.m2/repository/org/springframework/spring-aspects/5.3.24/spring-aspects-5.3.24.jar:/Users/iilhwan/.m2/repository/org/springframework/boot/spring-boot-starter-security/2.7.7/spring-boot-starter-security-2.7.7.jar:/Users/iilhwan/.m2/repository/org/springframework/boot/spring-boot-starter/2.7.7/spring-boot-starter-2.7.7.jar:/Users/iilhwan/.m2/repository/org/springframework/boot/spring-boot-starter-logging/2.7.7/spring-boot-starter-logging-2.7.7.jar:/Users/iilhwan/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/Users/iilhwan/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/Users/iilhwan/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.17.2/log4j-to-slf4j-2.17.2.jar:/Users/iilhwan/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.2/log4j-api-2.17.2.jar:/Users/iilhwan/.m2/repository/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36.jar:/Users/iilhwan/.m2/repository/org/yaml/snakeyaml/1.30/snakeyaml-1.30.jar:/Users/iilhwan/.m2/repository/org/springframework/spring-aop/5.3.24/spring-aop-5.3.24.jar:/Users/iilhwan/.m2/repository/org/springframework/security/spring-security-config/5.7.6/spring-security-config-5.7.6.jar:/Users/iilhwan/.m2/repository/org/springframework/security/spring-security-web/5.7.6/spring-security-web-5.7.6.jar:/Users/iilhwan/.m2/repository/org/springframework/spring-expression/5.3.24/spring-expression-5.3.24.jar:/Users/iilhwan/.m2/repository/org/springframework/boot/spring-boot-starter-thymeleaf/2.7.7/spring-boot-starter-thymeleaf-2.7.7.jar:/Users/iilhwan/.m2/repository/org/thymeleaf/thymeleaf-spring5/3.0.15.RELEASE/thymeleaf-spring5-3.0.15.RELEASE.jar:/Users/iilhwan/.m2/repository/org/thymeleaf/thymeleaf/3.0.15.RELEASE/thymeleaf-3.0.15.RELEASE.jar:/Users/iilhwan/.m2/repository/org/attoparser/attoparser/2.0.5.RELEASE/attoparser-2.0.5.RELEASE.jar:/Users/iilhwan/.m2/repository/org/unbescape/unbescape/1.1.6.RELEASE/unbescape-1.1.6.RELEASE.jar:/Users/iilhwan/.m2/repository/org/thymeleaf/extras/thymeleaf-extras-java8time/3.0.4.RELEASE/thymeleaf-extras-java8time-3.0.4.RELEASE.jar:/Users/iilhwan/.m2/repository/org/springframework/boot/spring-boot-starter-web/2.7.7/spring-boot-starter-web-2.7.7.jar:/Users/iilhwan/.m2/repository/org/springframework/boot/spring-boot-starter-json/2.7.7/spring-boot-starter-json-2.7.7.jar:/Users/iilhwan/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.4.2/jackson-databind-2.13.4.2.jar:/Users/iilhwan/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.4/jackson-annotations-2.13.4.jar:/Users/iilhwan/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.4/jackson-core-2.13.4.jar:/Users/iilhwan/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.13.4/jackson-datatype-jdk8-2.13.4.jar:/Users/iilhwan/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.13.4/jackson-datatype-jsr310-2.13.4.jar:/Users/iilhwan/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.13.4/jackson-module-parameter-names-2.13.4.jar:/Users/iilhwan/.m2/repository/org/springframework/spring-web/5.3.24/spring-web-5.3.24.jar:/Users/iilhwan/.m2/repository/org/springframework/spring-webmvc/5.3.24/spring-webmvc-5.3.24.jar:/Users/iilhwan/.m2/repository/org/mybatis/spring/boot/mybatis-spring-boot-starter/2.3.0/mybatis-spring-boot-starter-2.3.0.jar:/Users/iilhwan/.m2/repository/org/mybatis/spring/boot/mybatis-spring-boot-autoconfigure/2.3.0/mybatis-spring-boot-autoconfigure-2.3.0.jar:/Users/iilhwan/.m2/repository/org/mybatis/mybatis/3.5.11/mybatis-3.5.11.jar:/Users/iilhwan/.m2/repository/org/mybatis/mybatis-spring/2.1.0/mybatis-spring-2.1.0.jar:/Users/iilhwan/.m2/repository/org/thymeleaf/extras/thymeleaf-extras-springsecurity5/3.0.5.RELEASE/thymeleaf-extras-springsecurity5-3.0.5.RELEASE.jar:/Users/iilhwan/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/Users/iilhwan/.m2/repository/org/springframework/boot/spring-boot-devtools/2.7.7/spring-boot-devtools-2.7.7.jar:/Users/iilhwan/.m2/repository/org/springframework/boot/spring-boot/2.7.7/spring-boot-2.7.7.jar:/Users/iilhwan/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.7.7/spring-boot-autoconfigure-2.7.7.jar:/Users/iilhwan/.m2/repository/com/mysql/mysql-connector-j/8.0.31/mysql-connector-j-8.0.31.jar:/Users/iilhwan/.m2/repository/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar:/Users/iilhwan/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar:/Users/iilhwan/.m2/repository/jakarta/activation/jakarta.activation-api/1.2.2/jakarta.activation-api-1.2.2.jar:/Users/iilhwan/.m2/repository/org/springframework/spring-core/5.3.24/spring-core-5.3.24.jar:/Users/iilhwan/.m2/repository/org/springframework/spring-jcl/5.3.24/spring-jcl-5.3.24.jar:/Users/iilhwan/.m2/repository/org/springframework/security/spring-security-core/5.7.6/spring-security-core-5.7.6.jar:/Users/iilhwan/.m2/repository/org/springframework/security/spring-security-crypto/5.7.6/spring-security-crypto-5.7.6.jar:/Users/iilhwan/.m2/repository/com/google/code/gson/gson/2.8.2/gson-2.8.2.jar:/Users/iilhwan/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/2.7.7/spring-boot-starter-tomcat-2.7.7.jar:/Users/iilhwan/.m2/repository/jakarta/annotation/jakarta.annotation-api/1.3.5/jakarta.annotation-api-1.3.5.jar:/Users/iilhwan/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/9.0.70/tomcat-embed-core-9.0.70.jar:/Users/iilhwan/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/9.0.70/tomcat-embed-el-9.0.70.jar:/Users/iilhwan/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.70/tomcat-embed-websocket-9.0.70.jar, com.sun.management.jmxremote.authenticate=false, java.vm.vendor=Oracle Corporation, user.timezone=Asia/Seoul, jakarta.persistence.sharedCache.mode=UNSPECIFIED, os.name=Mac OS X, java.vm.specification.version=11, jakarta.persistence.nonJtaDataSource=HikariDataSource (HikariPool-8), sun.java.launcher=SUN_STANDARD, user.country=KR, spring.application.admin.enabled=true, javax.persistence.nonJtaDataSource=HikariDataSource (HikariPool-8), hibernate.use_sql_comments=true, hibernate.transaction.jta.platform=org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform@6ac734e4, http.nonProxyHosts=local|*.local|169.254/16|*.169.254/16|localhost|*.localhost|lx.astxsvc.com|*.lx.astxsvc.com, com.sun.management.jmxremote=, javax.persistence.sharedCache.mode=UNSPECIFIED, sun.cpu.endian=little, user.home=/Users/iilhwan, spring.boot.project.name=Sboard, user.language=ko, FILE_LOG_CHARSET=UTF-8, java.awt.graphicsenv=sun.awt.CGraphicsEnvironment, java.awt.headless=true, jakarta.persistence.validation.mode=AUTO, ftp.nonProxyHosts=local|*.local|169.254/16|*.169.254/16|localhost|*.localhost|lx.astxsvc.com|*.lx.astxsvc.com, spring.jmx.enabled=true, path.separator=:, java.security.egd=file:/dev/./urandom, os.version=11.2.3, java.runtime.name=Java(TM) SE Runtime Environment, hibernate.ejb.persistenceUnitName=default, spring.beaninfo.ignore=true, java.vm.name=Java HotSpot(TM) 64-Bit Server VM, hibernate.show_sql=true, LOG_FILE=log/Sboard.log, java.vendor.url.bug=https://bugreport.java.com/bugreport/, catalina.home=/private/var/folders/g1/s9521ly14q907m1f7x4cmvy80000gn/T/tomcat.8080.5310754604407345047, hibernate.physical_naming_strategy=org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy, user.dir=/Users/iilhwan/Desktop/Workspace/SpringBoot/Sboard, os.arch=x86_64, catalina.base=/private/var/folders/g1/s9521ly14q907m1f7x4cmvy80000gn/T/tomcat.8080.5310754604407345047, hibernate.boot.CfgXmlAccessService.key=org.hibernate.boot.registry.StandardServiceRegistryBuilder$1@74431cde, java.vm.info=mixed mode, java.vm.version=11.0.16+11-LTS-199, hibernate.bytecode.use_reflection_optimizer=false, java.rmi.server.hostname=localhost, hibernate.connection.datasource=HikariDataSource (HikariPool-8), java.class.version=55.0}
+2023-01-25 19:33:45.104 DEBUG 37394 --- [restartedMain] org.hibernate.secure.spi.JaccIntegrator  : Skipping JACC integration as it was not enabled
+2023-01-25 19:33:45.105 DEBUG 37394 --- [restartedMain] o.hibernate.internal.SessionFactoryImpl  : Instantiated session factory
+2023-01-25 19:33:45.105 DEBUG 37394 --- [restartedMain] o.h.type.spi.TypeConfiguration$Scope     : Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@21a6f0a9] to SessionFactoryImpl [org.hibernate.internal.SessionFactoryImpl@12cc1f9c]
+2023-01-25 19:33:45.105 DEBUG 37394 --- [restartedMain] o.h.boot.internal.ClassLoaderAccessImpl  : Not known whether passed class name [kr.co.sboard.entity.UserEntity] is safe
+2023-01-25 19:33:45.105 DEBUG 37394 --- [restartedMain] o.h.boot.internal.ClassLoaderAccessImpl  : No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : kr.co.sboard.entity.UserEntity
+2023-01-25 19:33:45.128 DEBUG 37394 --- [restartedMain] o.h.boot.internal.ClassLoaderAccessImpl  : Not known whether passed class name [kr.co.sboard.entity.ArticleEntity] is safe
+2023-01-25 19:33:45.128 DEBUG 37394 --- [restartedMain] o.h.boot.internal.ClassLoaderAccessImpl  : No temp ClassLoader provided; using live ClassLoader for loading potentially unsafe class : kr.co.sboard.entity.ArticleEntity
+2023-01-25 19:33:45.141 DEBUG 37394 --- [restartedMain] o.h.p.entity.AbstractEntityPersister     : Static SQL for entity: kr.co.sboard.entity.UserEntity
+2023-01-25 19:33:45.142 DEBUG 37394 --- [restartedMain] o.h.p.entity.AbstractEntityPersister     :  Version select: /* get version kr.co.sboard.entity.UserEntity */ select uid from board_user where uid =?
+2023-01-25 19:33:45.142 DEBUG 37394 --- [restartedMain] o.h.p.entity.AbstractEntityPersister     :  Snapshot select: /* get current state kr.co.sboard.entity.UserEntity */ select userentity_.uid, userentity_.addr1 as addr2_1_, userentity_.addr2 as addr3_1_, userentity_.email as email4_1_, userentity_.grade as grade5_1_, userentity_.hp as hp6_1_, userentity_.name as name7_1_, userentity_.nick as nick8_1_, userentity_.pass as pass9_1_, userentity_.rdate as rdate10_1_, userentity_.regip as regip11_1_, userentity_.zip as zip12_1_ from board_user userentity_ where userentity_.uid=?
+2023-01-25 19:33:45.142 DEBUG 37394 --- [restartedMain] o.h.p.entity.AbstractEntityPersister     :  Insert 0: /* insert kr.co.sboard.entity.UserEntity */ insert into board_user (addr1, addr2, email, grade, hp, name, nick, pass, rdate, regip, zip, uid) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-01-25 19:33:45.142 DEBUG 37394 --- [restartedMain] o.h.p.entity.AbstractEntityPersister     :  Update 0: /* update kr.co.sboard.entity.UserEntity */ update board_user set addr1=?, addr2=?, email=?, grade=?, hp=?, name=?, nick=?, pass=?, rdate=?, regip=?, zip=? where uid=?
+2023-01-25 19:33:45.143 DEBUG 37394 --- [restartedMain] o.h.p.entity.AbstractEntityPersister     :  Delete 0: /* delete kr.co.sboard.entity.UserEntity */ delete from board_user where uid=?
+2023-01-25 19:33:45.143 DEBUG 37394 --- [restartedMain] o.h.l.p.b.i.spaces.QuerySpacesImpl       : Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@51dd30aa]
+2023-01-25 19:33:45.143 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : addr1
+2023-01-25 19:33:45.143 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : addr2
+2023-01-25 19:33:45.143 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : email
+2023-01-25 19:33:45.143 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : grade
+2023-01-25 19:33:45.143 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : hp
+2023-01-25 19:33:45.143 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : name
+2023-01-25 19:33:45.143 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : nick
+2023-01-25 19:33:45.144 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : pass
+2023-01-25 19:33:45.144 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : rdate
+2023-01-25 19:33:45.144 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : regip
+2023-01-25 19:33:45.144 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : zip
+2023-01-25 19:33:45.144 DEBUG 37394 --- [restartedMain] lanBuildingAssociationVisitationStrategy : Building LoadPlan...
+2023-01-25 19:33:45.145 DEBUG 37394 --- [restartedMain] h.l.p.e.i.LoadQueryJoinAndFetchProcessor : processing queryspace <gen:0>
+2023-01-25 19:33:45.145 DEBUG 37394 --- [restartedMain] o.h.l.p.build.spi.LoadPlanTreePrinter    : LoadPlan(entity=kr.co.sboard.entity.UserEntity)
+    - Returns
+       - EntityReturnImpl(entity=kr.co.sboard.entity.UserEntity, querySpaceUid=<gen:0>, path=kr.co.sboard.entity.UserEntity)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=kr.co.sboard.entity.UserEntity)
+          - SQL table alias mapping - userentity0_
+          - alias suffix - 0_
+          - suffixed key columns - {uid1_1_0_}
+
+2023-01-25 19:33:45.145 DEBUG 37394 --- [restartedMain] o.h.loader.entity.plan.EntityLoader      : Static select for entity kr.co.sboard.entity.UserEntity [NONE]: select userentity0_.uid as uid1_1_0_, userentity0_.addr1 as addr2_1_0_, userentity0_.addr2 as addr3_1_0_, userentity0_.email as email4_1_0_, userentity0_.grade as grade5_1_0_, userentity0_.hp as hp6_1_0_, userentity0_.name as name7_1_0_, userentity0_.nick as nick8_1_0_, userentity0_.pass as pass9_1_0_, userentity0_.rdate as rdate10_1_0_, userentity0_.regip as regip11_1_0_, userentity0_.zip as zip12_1_0_ from board_user userentity0_ where userentity0_.uid=?
+2023-01-25 19:33:45.146 DEBUG 37394 --- [restartedMain] o.h.p.entity.AbstractEntityPersister     : Static SQL for entity: kr.co.sboard.entity.ArticleEntity
+2023-01-25 19:33:45.146 DEBUG 37394 --- [restartedMain] o.h.p.entity.AbstractEntityPersister     :  Version select: /* get version kr.co.sboard.entity.ArticleEntity */ select no from board_article where no =?
+2023-01-25 19:33:45.146 DEBUG 37394 --- [restartedMain] o.h.p.entity.AbstractEntityPersister     :  Snapshot select: /* get current state kr.co.sboard.entity.ArticleEntity */ select articleent_.no, articleent_.cate as cate2_0_, articleent_.comment as comment3_0_, articleent_.content as content4_0_, articleent_.file as file5_0_, articleent_.hit as hit6_0_, articleent_.parent as parent7_0_, articleent_.rdate as rdate8_0_, articleent_.regip as regip9_0_, articleent_.title as title10_0_, articleent_.uid as uid11_0_ from board_article articleent_ where articleent_.no=?
+2023-01-25 19:33:45.146 DEBUG 37394 --- [restartedMain] o.h.p.entity.AbstractEntityPersister     :  Insert 0: /* insert kr.co.sboard.entity.ArticleEntity */ insert into board_article (cate, comment, content, file, hit, parent, rdate, regip, title, uid, no) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2023-01-25 19:33:45.146 DEBUG 37394 --- [restartedMain] o.h.p.entity.AbstractEntityPersister     :  Update 0: /* update kr.co.sboard.entity.ArticleEntity */ update board_article set cate=?, comment=?, content=?, file=?, hit=?, parent=?, rdate=?, regip=?, title=?, uid=? where no=?
+2023-01-25 19:33:45.146 DEBUG 37394 --- [restartedMain] o.h.p.entity.AbstractEntityPersister     :  Delete 0: /* delete kr.co.sboard.entity.ArticleEntity */ delete from board_article where no=?
+2023-01-25 19:33:45.146 DEBUG 37394 --- [restartedMain] o.h.l.p.b.i.spaces.QuerySpacesImpl       : Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@5b0764ce]
+2023-01-25 19:33:45.146 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : cate
+2023-01-25 19:33:45.146 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : comment
+2023-01-25 19:33:45.146 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : content
+2023-01-25 19:33:45.146 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : file
+2023-01-25 19:33:45.148 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : hit
+2023-01-25 19:33:45.150 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : parent
+2023-01-25 19:33:45.150 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : rdate
+2023-01-25 19:33:45.150 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : regip
+2023-01-25 19:33:45.151 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : title
+2023-01-25 19:33:45.151 DEBUG 37394 --- [restartedMain] o.h.p.walking.spi.MetamodelGraphWalker   : Visiting attribute path : uid
+2023-01-25 19:33:45.152 DEBUG 37394 --- [restartedMain] lanBuildingAssociationVisitationStrategy : Building LoadPlan...
+2023-01-25 19:33:45.153 DEBUG 37394 --- [restartedMain] h.l.p.e.i.LoadQueryJoinAndFetchProcessor : processing queryspace <gen:0>
+2023-01-25 19:33:45.154 DEBUG 37394 --- [restartedMain] o.h.l.p.build.spi.LoadPlanTreePrinter    : LoadPlan(entity=kr.co.sboard.entity.ArticleEntity)
+    - Returns
+       - EntityReturnImpl(entity=kr.co.sboard.entity.ArticleEntity, querySpaceUid=<gen:0>, path=kr.co.sboard.entity.ArticleEntity)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=kr.co.sboard.entity.ArticleEntity)
+          - SQL table alias mapping - articleent0_
+          - alias suffix - 0_
+          - suffixed key columns - {no1_0_0_}
+
+2023-01-25 19:33:45.155 DEBUG 37394 --- [restartedMain] o.h.loader.entity.plan.EntityLoader      : Static select for entity kr.co.sboard.entity.ArticleEntity [NONE]: select articleent0_.no as no1_0_0_, articleent0_.cate as cate2_0_0_, articleent0_.comment as comment3_0_0_, articleent0_.content as content4_0_0_, articleent0_.file as file5_0_0_, articleent0_.hit as hit6_0_0_, articleent0_.parent as parent7_0_0_, articleent0_.rdate as rdate8_0_0_, articleent0_.regip as regip9_0_0_, articleent0_.title as title10_0_0_, articleent0_.uid as uid11_0_0_ from board_article articleent0_ where articleent0_.no=?
+2023-01-25 19:33:45.198 DEBUG 37394 --- [restartedMain] org.hibernate.mapping.Table              : No alter strings for table : board_article
+2023-01-25 19:33:45.200 DEBUG 37394 --- [restartedMain] org.hibernate.mapping.Table              : No alter strings for table : board_user
+2023-01-25 19:33:45.201  INFO 37394 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-01-25 19:33:45.203 DEBUG 37394 --- [restartedMain] o.h.query.spi.NamedQueryRepository       : Checking 0 named HQL queries
+2023-01-25 19:33:45.203 DEBUG 37394 --- [restartedMain] o.h.query.spi.NamedQueryRepository       : Checking 0 named SQL queries
+2023-01-25 19:33:45.203 DEBUG 37394 --- [restartedMain] .h.s.i.SessionFactoryServiceRegistryImpl : EventListenerRegistry access via ServiceRegistry is deprecated.  Use `sessionFactory.getEventEngine().getListenerRegistry()` instead
+2023-01-25 19:33:45.205 DEBUG 37394 --- [restartedMain] o.h.internal.SessionFactoryRegistry      : Registering SessionFactory: deb8c5db-9cab-4963-9034-2ad0f1237d46 (<unnamed>)
+2023-01-25 19:33:45.205 DEBUG 37394 --- [restartedMain] o.h.internal.SessionFactoryRegistry      : Not binding SessionFactory to JNDI, no JNDI name configured
+2023-01-25 19:33:45.205  INFO 37394 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-01-25 19:33:45.357 DEBUG 37394 --- [restartedMain] o.h.stat.internal.StatisticsInitiator    : Statistics initialized [enabled=false]
+2023-01-25 19:33:45.468 DEBUG 37394 --- [restartedMain] o.h.e.t.internal.TransactionImpl         : On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+2023-01-25 19:33:45.475 DEBUG 37394 --- [restartedMain] o.h.e.t.internal.TransactionImpl         : On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+2023-01-25 19:33:45.513  INFO 37394 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3e33b42b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@d996864, org.springframework.security.web.context.SecurityContextPersistenceFilter@402849a7, org.springframework.security.web.header.HeaderWriterFilter@28f35772, org.springframework.security.web.authentication.logout.LogoutFilter@629cc097, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3a2f5381, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@557f0027, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6705953d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4b6400f7, org.springframework.security.web.session.SessionManagementFilter@64fc70ab, org.springframework.security.web.access.ExceptionTranslationFilter@405ab306, org.springframework.security.web.access.intercept.AuthorizationFilter@4a85262]
+2023-01-25 19:33:45.530  WARN 37394 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-25 19:33:45.709  INFO 37394 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-01-25 19:33:45.733  INFO 37394 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/Sboard'
+2023-01-25 19:33:45.742  INFO 37394 --- [restartedMain] kr.co.sboard.SboardApplication           : Started SboardApplication in 1.236 seconds (JVM running for 844.63)
+2023-01-25 19:33:45.786  INFO 37394 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-01-25 19:34:03.483  INFO 37394 --- [RMI TCP Connection(36)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-01-25 19:34:03.488  INFO 37394 --- [RMI TCP Connection(36)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-01-25 19:34:03.499  INFO 37394 --- [RMI TCP Connection(36)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-01-25 19:34:03.499 DEBUG 37394 --- [RMI TCP Connection(36)-127.0.0.1] o.hibernate.internal.SessionFactoryImpl  : HHH000031: Closing
+2023-01-25 19:34:03.499 DEBUG 37394 --- [RMI TCP Connection(36)-127.0.0.1] o.h.type.spi.TypeConfiguration$Scope     : Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@4ba249f4] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@12cc1f9c]
+2023-01-25 19:34:03.499 DEBUG 37394 --- [RMI TCP Connection(36)-127.0.0.1] o.h.s.i.AbstractServiceRegistryImpl      : Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries
+2023-01-25 19:34:03.500 DEBUG 37394 --- [RMI TCP Connection(36)-127.0.0.1] o.h.b.r.i.BootstrapServiceRegistryImpl   : Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries
+2023-01-25 19:34:03.506  INFO 37394 --- [RMI TCP Connection(36)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2023-01-25 19:34:03.530  INFO 37394 --- [RMI TCP Connection(36)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
