@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.farmstory.dao.ArticleDAO">
+    <!-- ********** 글 ************* -->
+    <!-- 글 목록 불러오기 -->
+    <select id="selectArticles" resultType="kr.co.farmstory.vo.ArticleVO">
+        select a.*, b.`nick` from `board_article` as a
+        join `board_user` as b
+        on a.uid = b.uid
+        where `parent`=0 and `cate`=#{cate}
+        order by `no` desc
+        limit #{start}, 10;
+    </select>
+
+    <!-- 게시글 작성 -->
+    <insert id="insertArticle" useGeneratedKeys="true" keyProperty="no">
+        insert into `board_article` set
+        `cate`=#{cate},
+        `title`=#{title},
+        `content`=#{content},
+        <if test="fname == null">
+            `file`=0,
+        </if>
+        <if test="fname != null">
+            `file`=1,
+        </if>
+        `uid`=#{uid},
+        `regip`=#{regip},
+        `rdate`=NOW();
+    </insert>
+
+    <!-- 글 보기 -->
+    <select id="selectArticle" resultMap="selectArticleResultMap">
+        select * from `board_article` as a
+        left join `board_file` as b
+        on a.no = b.parent
+        where `no`=#{no};
+    </select>
+
+    <!-- 게시글 조회(selectArticle) 결과를 상세하게 매핑하기 위한 사용자 정의 Map(key, value)-->
+    <!-- DB의 값을 ArticleVO에 매핑(저장) -->
+    <resultMap type="kr.co.farmstory.vo.ArticleVO" id="selectArticleResultMap">
+        <id column="no" property="no"/>
+        <result column="parent" property="parent"/>
+        <result column="comment" property="comment"/>
+        <result column="cate" property="cate"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="file" property="file"/>
+        <result column="hit" property="hit"/>
+        <result column="uid" property="uid"/>
+        <result column="regip" property="regip"/>
+        <result column="rdate" property="rdate"/>
+
+        <!-- 연관관계 매핑 -->
+        <association property="fileVO" javaType="kr.co.farmstory.vo.FileVO">
+            <id column="fno" property="fno"/>
+            <result column="parent" property="parent"/>
+            <result column="newName" property="newName"/>
+            <result column="oriName" property="oriName"/>
+            <result column="download" property="download"/>
+        </association>
+
+        <!-- 다중 파일 업로드시 (List)  -->
+        <!-- <collection property=""></collection> -->
+    </resultMap>
+
+    <!-- 글 수정하기 -->
+    <update id="updateArticle">
+        update `board_article` set
+        `title`=#{title},
+        `content`=#{content},
+        `rdate`=NOW()
+        where `no`=#{no};
+    </update>
+
+    <!-- 글 삭제하기 -->
+    <delete id="deleteArticle">
+        delete from `board_article` where `no`=#{no};
+    </delete>
+
+    <!-- 글 조회수 +1 -->
+    <update id="updateArticleHit">
+        update `board_article` set `hit`=`hit`+1 where `no`=#{no};
+    </update>
+
+    <!-- ********************************* 파일 ********************************** -->
+    <!-- 파일 등록하기 -->
+    <insert id="insertFile">
+        insert into `board_file` set
+        `parent`=#{parent},
+        `newName`=#{newName},
+        `oriName`=#{oriName};
+    </insert>
+    <!-- 파일 다운로드 '클릭'-->
+    <select id="selectFile" resultType="kr.co.farmstory.vo.FileVO">
+        select * from `board_file` where `fno`=#{fno};
+    </select>
+    <!-- 파일 다운로드 횟수 +1 -->
+    <update id="updateDownload">
+        update `board_file` set `download`=`download`+ 1 where `fno`=#{fno}
+    </update>
+
+
+
+    <!-- ********** 페이징 - 글 전체 개수 ************* -->
+    <select id="selectCountTotal" resultType="int">
+        select count(`no`) from `board_article` where `parent`=0;
+    </select>
+
+</mapper>

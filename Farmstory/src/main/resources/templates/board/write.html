@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{/header}"/>
+<th:block th:replace="~{/board/__${group}__}"/>
+<main id="board" class="write">
+
+    <form th:action="@{/board/write}" method="post" enctype="multipart/form-data">
+
+<!--        <input type="text" name="uid" th:value="${#authentication.principal.user.uid}">-->
+<!--        <input type="text" name="regip" th:value="${#authentication.details.remoteAddress}">-->
+        <input type="text" name="cate" th:value="${cate}">
+        <input type="text" name="group" th:value="${group}">
+
+        <table border="0">
+            <caption>글 쓰기</caption>
+            <tr>
+                <th>제목</th>
+                <td><input type="text" name="title" placeholder="제목을 입력하세요."/></td>
+            </tr>
+            <tr>
+                <th>내용</th>
+                <td><textarea name="content"></textarea></td>
+            </tr>
+            <tr>
+                <th>파일</th>
+                <td><input type="file" name="fname"/></td>
+            </tr>
+        </table>
+
+        <div>
+            <a th:href="@{/board/list(group=${group}, cate=${cate})}" class="btn btnCancel">취소</a>
+            <input type="submit" value="작성완료" class="btn btnComplete"/>
+        </div>
+    </form>
+</main>
+<!-- 내용 끝 -->
+
+</article>
+</section>
+
+</div>
+<th:block th:replace="~{/footer}"/>
+</html>

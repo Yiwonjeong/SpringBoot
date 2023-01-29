@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div id="sub">
+    <div><img th:src="@{/img/sub_top_tit2.png}" alt="MARKET"></div>
+    <section class="cate2">
+        <aside>
+            <img th:src="@{/img/sub_aside_cate2_tit.png}" alt="장보기"/>
+
+            <ul class="lnb">
+                <li th:classappend="${cate}=='market'?'on'"><a th:href="@{/board/list(group=_market, cate=market)}">장보기</a></li>
+            </ul>
+        </aside>
+        <article>
+            <nav>
+                <img th:src="@{/img/sub_nav_tit_cate2_{value}.png(value=${cate})}" alt="장보기"/>
+                <p>
+                    HOME > 장보기 >
+                    <em th:if="${cate}=='market'">장보기</em>
+                </p>
+            </nav>
+
+            <!-- 내용 시작 -->
