@@ -7,16 +7,28 @@
 - Spring Boot JPA 기본 메소드, 쿼리 메소드 
 
 ## Ch08
--
+- Spring Boot HttpSession, Spring Security 
 
 ## Ch09
+- Spring Boot REST 웹 서비스 
+
+## Ch10
+- Spring Boot 테스트와 로깅 
 
 ## User
 - Spring Boot DB 연동 및 간단 회원 정보 목록, 입력, 수정, 삭제 기능 구현
 
 ## BookStore
-- Spring Boot DB 연동 및 간단 도서 목록, 등록, 수정, 삭제 + 고객 목록, 등록, 수정, 삭제 기능 구현 
+- Spring Boot DB 연동 및 간단 도서 목록, 등록, 수정, 삭제
+- 고객 목록, 등록, 수정, 삭제 기능 구현 
 
 ## Sboard
-- Spring Boot DB 연동 + 회원가입, 약관, 로그인 + 게시글 목록, 글 쓰기, 파일 단일 업로드, 파일 다운로드, 글 보기  
-- (수정 예정) 회원가입 - 별명 
+- Spring Boot DB 연동 + 회원가입(유효성 검사), 약관, 로그인
+- 게시글 목록, 글 쓰기, 파일 단일 업로드, 파일 다운로드, 글 보기(조회수 +1), 글 수정, 글 삭제 
+- 댓글 작성, 수정, 삭제 기능 추가 구현
+
+## Farmstory
+- Intellij DB 연동
+- 회원가입(유효성 검사, 이메일 인증, 우편 API), 약관(전체 선택, 개별 선택 기능), 로그인(로그인 유지, remember-me)
+- 게시글 목록, 글 쓰기, 파일 단일 업로드, 파일 다운로드, 글 보기(조회수 +1), 글 수정, 글 삭제 
+
