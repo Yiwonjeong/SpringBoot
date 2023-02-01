@@ -37,6 +37,14 @@ public class ArticleService {
     private ArticleRepo repo;
 
     // -------------------- 글 ----------------------
+    // 메인 -  latest (최신글 불러오기 - 텃밭가꾸기, 귀농학교, 농작물이야기)
+    public List<ArticleVO> selectIndexArticles(){
+        return dao.selectIndexArticles();
+    }
+    // 메인 -  latest (최신글 불러오기 - 공지사항, 1:1고객문의, 자주묻는질문)
+    public List<ArticleVO> selectIndexArticles2(){
+        return dao.selectIndexArticles2();
+    }
     // 글 목록 불러오기
     public List<ArticleVO> selectArticles(String cate, int start){
         return dao.selectArticles(cate, start);

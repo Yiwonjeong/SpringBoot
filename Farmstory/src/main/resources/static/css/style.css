@@ -204,7 +204,7 @@ main > .latest table {
     bottom: 16px;
     color: #6a6a6a;
 }
-main > .latest table tr > td > a{
+main > .latest table tr > td > a {
     display: block;
     width: 140px;
     white-space: nowrap;
@@ -213,7 +213,9 @@ main > .latest table tr > td > a{
     line-height: 18px;  
     color: #6a6a6a;
 }
-
+main > .latest table tr > td > a:hover {
+    text-decoration: underline;
+}
 /* 메인 - info */
 main > .info {
     height: 154px;
@@ -526,6 +528,7 @@ main > .info > div > .account {
     height: 104px;
     background: #f5f6fa;
     border-top: 1px solid #cfded8;
+    border-bottom: 1px solid #cfded8;
     margin-top: 32px;
     padding: 16px;
     box-sizing: border-box;
@@ -536,6 +539,19 @@ main > .info > div > .account {
 }
 #user.login > .info > a {
     float: right;
+}
+#user.login > .SNSlogin {
+        padding-bottom: 14px;
+}
+#user.login > .SNSlogin > div {
+    text-align: center;
+    margin: 10px;
+    font-size: 12px;
+    font-weight: normal;
+    color: rgb(117, 117, 117);
+}
+#user.login > .SNSlogin > .loginKaKao {
+    margin-left: 25px;
 }
 
 /* 약관 */

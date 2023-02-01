@@ -27,6 +27,8 @@ public class BoardController {
     private ArticleService service;
 
     // -------------------- 글 ----------------------
+    // 메인 -  latest (최신글 불러오기 - 텃밭가꾸기, 귀농학교, 농작물이야기)
+
     // '글 등록하기' 화면
     @GetMapping("board/write")
     public String write(Model model, String group, String cate, @AuthenticationPrincipal MyUserDetails myUser)

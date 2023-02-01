@@ -4,6 +4,24 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.farmstory.dao.ArticleDAO">
     <!-- ********** 글 ************* -->
+    <!-- 메인 -  latest (최신글 불러오기 - 텃밭가꾸기, 귀농학교, 농작물이야기) -->
+    <select id="selectIndexArticles" resultType="kr.co.farmstory.vo.ArticleVO">
+        (select `no`, `cate`, `title`, `rdate` from `board_article` where `cate`='grow' order by `no` desc limit 5)
+        union
+        (select `no`, `cate`, `title`, `rdate` from `board_article` where `cate`='school' order by `no` desc limit 5)
+        union
+        (select `no`, `cate`, `title`, `rdate` from `board_article` where `cate`='story' order by `no` desc limit 5)
+    </select>
+
+    <!-- 메인 -  latest (최신글 불러오기 - 공지사항, 1:1고객문의, 자주묻는질문) -->
+    <select id="selectIndexArticles2" resultType="kr.co.farmstory.vo.ArticleVO">
+        (select `no`, `cate`, `title` from `board_article` where `cate`='notice' order by `no` desc limit 3)
+        union
+        (select `no`, `cate`, `title` from `board_article` where `cate`='qna' order by `no` desc limit 3)
+        union
+        (select `no`, `cate`, `title` from `board_article` where `cate`='faq' order by `no` desc limit 3)
+    </select>
+
     <!-- 글 목록 불러오기 -->
     <select id="selectArticles" resultType="kr.co.farmstory.vo.ArticleVO">
         select a.*, b.`nick` from `board_article` as a

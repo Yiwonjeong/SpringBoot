@@ -30,4 +30,6 @@ public class UserEntity {
     private String addr2;
     private String regip;
     private String rdate;
+
+
 }

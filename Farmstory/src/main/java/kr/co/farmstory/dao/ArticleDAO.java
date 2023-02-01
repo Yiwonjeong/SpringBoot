@@ -13,6 +13,10 @@ import java.util.List;
 public interface ArticleDAO {
 
     // -------------------- 글 ----------------------
+    // 메인 -  latest (최신글 불러오기 - 텃밭가꾸기, 귀농학교, 농작물이야기)
+    public List<ArticleVO> selectIndexArticles();
+    // 메인 -  latest (최신글 불러오기 - 공지사항, 1:1고객문의, 자주묻는질문)
+    public List<ArticleVO> selectIndexArticles2();
     // 글 목록 불러오기
     public List<ArticleVO> selectArticles(@Param("cate") String cate, @Param("start") int start);
     // 글 등록하기
