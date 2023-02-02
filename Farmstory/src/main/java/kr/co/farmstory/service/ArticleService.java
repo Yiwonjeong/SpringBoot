@@ -157,8 +157,8 @@ public class ArticleService {
     }
 
     // 전체 게시글 개수
-    public long getTotalCount() {
-        return dao.selectCountTotal();
+    public long getTotalCount(String cate) {
+        return dao.selectCountTotal(cate);
     }
 
     // 마지막 페이지 번호

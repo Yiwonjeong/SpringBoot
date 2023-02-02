@@ -37,3 +37,4 @@ out/
 .vscode/
 
 ## application.properties 보안 ##
+**/application.properties

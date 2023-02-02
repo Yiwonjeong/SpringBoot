@@ -39,7 +39,7 @@ public interface ArticleDAO {
     public int updateDownload(int fno);
 
     // ----------------------------  페이징 - 글 전체 개수 -------------------------------
-    public int selectCountTotal();
+    public int selectCountTotal(String cate);
 
     // ------------------------------------  댓글 ---------------------------------------
     // 댓글 목록

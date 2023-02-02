@@ -13,6 +13,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -57,11 +58,13 @@ public class BoardController {
     @GetMapping("board/list")
     public String list(@AuthenticationPrincipal MyUserDetails myUser, Model model, String group, String cate, String pg){
 
-        UserEntity user = myUser.getUser();
+        UserEntity user = null;
+        if(myUser != null){ user = myUser.getUser(); }
+        model.addAttribute("user", user);
 
         int currentPage = service.getCurrentPage(pg);
         int start = service.getLimitStart(currentPage);
-        long total = service.getTotalCount();
+        long total = service.getTotalCount(cate);
         int lastPage = service.getLastPageNum(total);
         int pageStartNum = service.getPageStartNum(total, start);
         int groups[] = service.getPageGroup(currentPage, lastPage);
@@ -70,9 +73,7 @@ public class BoardController {
 
         model.addAttribute("group", group);
         model.addAttribute("cate", cate);
-        model.addAttribute("user", user);
         model.addAttribute("articles", articles);
-
         model.addAttribute("currentPage", currentPage);
         model.addAttribute("lastPage", lastPage);
         model.addAttribute("pageStartNum", pageStartNum);
