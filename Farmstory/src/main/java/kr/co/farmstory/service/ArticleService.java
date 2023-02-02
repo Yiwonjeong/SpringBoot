@@ -36,7 +36,7 @@ public class ArticleService {
     @Autowired
     private ArticleRepo repo;
 
-    // -------------------- 글 ----------------------
+    // -------------------------------------- 글 -------------------------------------------------
     // 메인 -  latest (최신글 불러오기 - 텃밭가꾸기, 귀농학교, 농작물이야기)
     public List<ArticleVO> selectIndexArticles(){
         return dao.selectIndexArticles();
@@ -78,7 +78,7 @@ public class ArticleService {
         return dao.updateArticleHit(no);
     }
 
-    // --------------------  파일 -------------------------
+    // --------------------------------------  파일 -------------------------------------------
     @Value("${spring.servlet.multipart.location}")
     private String uploadPath;
 
@@ -141,7 +141,7 @@ public class ArticleService {
         return vo;
     }
 
-    // --------------------  페이징  -----------------------
+    // --------------------------------------  페이징  -----------------------------------------
     // 페이지 시작값
     public int getLimitStart(int currentPage) {
         return (currentPage - 1) * 10;
@@ -195,5 +195,34 @@ public class ArticleService {
 
         return groups;
     }
+
+    // ------------------------------------  댓글 ---------------------------------------
+    // 댓글 목록
+    public List<ArticleVO> selectComment(int parent){
+        return dao.selectComment(parent);
+    }
+    // 댓글 작성
+    public int insertComment(ArticleVO vo){
+        int result = dao.insertComment(vo);
+        return result;
+    }
+    // 댓글 수 +1 (목록 댓글 수 표기 위함)
+    public int updateCommentPlus(int no) {
+        return dao.updateCommentPlus(no);
+    }
+    // 댓글 수 -1 (목록 댓글 수 표기 위함)
+    public int updateCommentMinus(int no) {
+        return dao.updateCommentMinus(no);
+    }
+    // 댓글 수정
+    public int updateComment(ArticleVO vo) {
+        int result = dao.updateComment(vo);
+        return result;
+    }
+    // 댓글 삭제
+    public int deleteComment(int no) {
+        return dao.deleteComment(no);
+    }
+
 
 }

@@ -14,10 +14,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Controller
@@ -26,7 +29,7 @@ public class BoardController {
     @Autowired
     private ArticleService service;
 
-    // -------------------- 글 ----------------------
+    // ------------------------------------------ 글 --------------------------------------------
     // 메인 -  latest (최신글 불러오기 - 텃밭가꾸기, 귀농학교, 농작물이야기)
 
     // '글 등록하기' 화면
@@ -89,9 +92,14 @@ public class BoardController {
 
         // 글 조회수 +1
         service.updateArticleHit(no);
+        // 댓글 가져오기
+        List<ArticleVO> comments = service.selectComment(no);
+        // 글 가져오기
         ArticleVO article = service.selectArticle(no);
+
         model.addAttribute("article", article);
         model.addAttribute("pg", pg);
+        model.addAttribute("comments", comments);
 
         return "board/view";
     }
@@ -132,7 +140,7 @@ public class BoardController {
         return "redirect:/board/list?group="+group+"&cate="+cate;
     }
 
-    // --------------------  파일 -----------------------
+    // ------------------------------------------  파일 ---------------------------------------------
     // 파일 다운로드
     @GetMapping("board/download")
     public ResponseEntity<Resource> download(int fno) throws IOException {
@@ -140,5 +148,40 @@ public class BoardController {
         ResponseEntity<Resource> respEntity = service.fileDownload(vo);
         return respEntity;
     }
+
+    // ------------------------------------  댓글 ---------------------------------------
+    // 댓글 목록 - 위 글 보기(view)에서 ...
+    // 댓글 작성
+    @PostMapping("board/insertComment")
+    public String insertComment(ArticleVO vo, HttpServletRequest req, String group, String cate, int pg, int no, int parent){
+        vo.setRegip(req.getRemoteAddr());
+
+        service.insertComment(vo);
+        // 댓글 수 + 1 (목록 댓글 수 표기 위함)
+        service.updateCommentPlus(parent);
+
+        return "redirect:/board/view?group="+group+"&cate="+cate+"&no="+no+"&pg="+pg;
+    }
+    // 댓글 수정
+    @ResponseBody
+    @PostMapping("board/updateComment")
+    public Map<String, Integer> updateComment(ArticleVO vo, HttpServletRequest req) {
+        vo.setRegip(req.getRemoteAddr());
+
+        int result = service.updateComment(vo);
+
+        Map<String, Integer> resultMap = new HashMap<>();
+        resultMap.put("result", result);
+
+        return resultMap;
+    }
+    // 댓글 삭제
+    @GetMapping("board/deleteComment")
+    public String deleteComment(ArticleVO vo, String group, String cate, int no, int pg, int parent) {
+        service.updateCommentMinus(parent);
+        service.deleteComment(no);
+        return "redirect:/board/view?group="+group+"&cate="+cate+"&no="+parent+"&pg="+pg;
+    }
+
 
 }
