@@ -37,4 +37,3 @@ out/
 .vscode/
 
 ## application.properties 보안 ##
-application-oauth.properties
