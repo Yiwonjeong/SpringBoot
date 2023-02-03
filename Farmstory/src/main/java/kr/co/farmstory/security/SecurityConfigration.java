@@ -25,7 +25,6 @@ public class SecurityConfigration{
 	@Autowired
 	private DataSource dataSource;
 
-
 	@Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		
@@ -34,7 +33,6 @@ public class SecurityConfigration{
 		
 		// 사이트 위변조 요청 방지
 		http.csrf().disable();
-
 
 		// 로그인 설정
 		http.formLogin()
@@ -77,13 +75,13 @@ public class SecurityConfigration{
 		return jdbcTokenRepository;
 	}
 
-	// 비밀번호 암호화 설정
+	// 비밀번호 암호화 설정 (BCrypt 해시함수를 사용해 비밀번호를 암호화)
 	@Bean
     public PasswordEncoder PasswordEncoder () {
 		return new BCryptPasswordEncoder();
     }
 
-	// 등록된 AuthenticationManager을 불러오기 위한 Bean
+	// AuthenticationManager을 불러오기 위한 Bean (SpringBoot에 이미 AuthenticationManager가 등록된 상태 가정)
 	@Bean
 	public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception{
 		return authenticationConfiguration.getAuthenticationManager();

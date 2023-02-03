@@ -103,7 +103,6 @@
                     <th:block th:each="article2:${articles2}">
                         <ul class="txt" th:if="${article2.cate == 'notice'}">
                             <li><a th:href="@{/board/view (group=_community, cate=notice, no=${article2.no}, pg=1)}">[[${article2.title}]]</a></li>
-<!--                            http://localhost:8080/Farmstory/board/view?group=_community&cate=notice&no=426&pg=1-->
                         </ul>
                     </th:block>
                 </div>

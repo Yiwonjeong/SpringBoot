@@ -40,6 +40,11 @@ public class UserService {
         vo.setPass(encoder.encode(vo.getPass1()));
         return dao.insertUser(vo);
     }
+
+    public UserVO insertKakaoUser(UserVO vo) {
+        return dao.insertKakaoUser(vo);
+    }
+
     public UserVO selectUser(String uid) {
         return dao.selectUser(uid);
     }

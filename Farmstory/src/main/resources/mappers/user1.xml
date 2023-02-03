@@ -3,9 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.farmstory.dao.UserDAO">
+    <!-- *************************************** 약관 ****************************************** -->
     <select id="selectTerms" resultType="kr.co.farmstory.vo.TermsVO">
         SELECT * FROM `board_terms`;
     </select>
+
+    <!-- *************************************** 유저 ****************************************** -->
+    <!-- 회원가입 -->
     <insert id="insertUser">
         insert into `board_user` set
         `uid`=#{uid},
@@ -20,4 +24,19 @@
         `regip`=#{regip},
         `rdate`=NOW();
     </insert>
+    <!-- 회원가입 (Kakao User) -->
+    <insert id="insertKakaoUser">
+        insert into `board_user` set
+        `uid`=#{uid},
+        `pass`=#{pass},
+        `name`=#{name},
+        `nick`=#{nick},
+        `email`=#{email},
+        `hp`=#{hp},
+        `rdate`=NOW();
+    </insert>
+    <!-- 회원 찾기 (카카오 로그인 기존 가입자 구분 목적) -->
+    <select id="selectUser" resultType="kr.co.farmstory.vo.UserVO">
+        select * from `board_user` where `uid`=#{uid};
+    </select>
 </mapper>
