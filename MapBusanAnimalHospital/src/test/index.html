@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>index</title>
+    </head>
+    <body>
+        <div id="map" sylte="position:fixed; width:100%; height:100%"></div>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=00e5515cd116bd17ee60449e9e92bf44"></script>
+        <script th:line="javascript">
+            var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+            var options = { //지도를 생성할 때 필요한 기본 옵션
+                center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+                level: 3 //지도의 레벨(확대, 축소 정도)
+            };
+
+            var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+            var items = "";
+
+            for(var item of items){
+                // 마커 생성
+                var market = new kakao.maps.Marker({
+                    title: item.animal_hospital,
+                    position: new kakao.maps.LatLng(item.lat, item.lon)
+                });
+
+                // 마커 표시
+                marker.setMap(map);
+            }
+        </script>
+    </body>
+</html>

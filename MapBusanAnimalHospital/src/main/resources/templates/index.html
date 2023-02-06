@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>index</title>
+  </head>
+  <body>
+    <div id="map" style="position:fixed; width:100%; height:100%"></div>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=00e5515cd116bd17ee60449e9e92bf44"></script>
+    <script th:inline="javascript">
+        var container = document.getElementById('map');
+        var options = {
+          center: new kakao.maps.LatLng(35.1795543,129.0756416),
+          level:5
+        };
+
+        var map = new kakao.maps.Map(container, options);
+        var items = [[${items}]];
+
+        for(var item of items){
+            var marker = new kakao.maps.Marker({
+                            title: item.animal_hospital,
+                            position: new kakao.maps.LatLng(item.lat, item.lon)
+                        });
+            marker.setMap(map);
+        }
+
+    </script>
+  </body>
+</html>
