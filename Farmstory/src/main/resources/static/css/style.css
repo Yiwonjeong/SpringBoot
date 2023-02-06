@@ -914,6 +914,20 @@ main > .info > div > .account {
 #board.view > .commentList .nick {
 	font-size: 13px;
 }
+#board.view > .commentList .tagUser {
+    border-color: #ffb7bb;
+    background-color: #fff3f4;
+    color: #ff5656;
+    display: inline-block;
+    height: 16px;
+    margin: 1px 3px 0 0;
+    padding: 1px 5px;
+    border: 1px solid #ffb7bb;
+    border-radius: 25px;
+    line-height: 1.4;
+    font-size: 10px;
+    box-sizing: border-box;
+}
 #board.view > .commentList .date {
     font-size: 11px;
     color: #959595;
@@ -954,12 +968,61 @@ main > .info > div > .account {
     padding: 4px;
     display: none;
 }
+#board.view > .commentList article > div .reComment {
+    background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    background-color: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #dcdcdc;
+    cursor: pointer;
+    padding: 4px;
+}
+#board.view > .commentList article > div .reCommentCancel {
+    background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    background-color: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #dcdcdc;
+    cursor: pointer;
+    padding: 4px;
+    display: none;
+}
 #board.view > .commentList .empty {
     padding: 20px;
     text-align: center;
     box-sizing: border-box;
 }
-
+#board.view > .commentList .reComment_write {
+    width: 100%;
+    border: none;
+    resize: none;
+    overflow: hidden;
+    padding: 2px;
+    box-sizing: border-box;
+}
+#board.view > .commentList .reCommentForm {
+    height: 75px;
+    border: 1px solid #e4eaec;
+    resize: none;
+    overflow: hidden;
+    padding: 6px;
+    box-sizing: border-box;
+    background: #fff;
+    display: none;
+}
+#board.view > .commentList .reCommentForm > .btnReComplete {
+    float: right;
+    background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    background-color: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #dcdcdc;
+    cursor: pointer;
+    padding: 4px;
+}
+#board.view > .commentList .reply {
+    margin-left: 10px;
+}
+#board.view > .commentList .reply::before {
+    content: "ㄴ ";
+}
 #board.view > .commentForm {
     overflow: hidden;
 }

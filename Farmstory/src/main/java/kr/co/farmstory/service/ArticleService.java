@@ -206,6 +206,11 @@ public class ArticleService {
         int result = dao.insertComment(vo);
         return result;
     }
+    // 대댓글 작성
+    public int insertReComment(ArticleVO vo){
+        int result = dao.insertReComment(vo);
+        return result;
+    }
     // 댓글 수 +1 (목록 댓글 수 표기 위함)
     public int updateCommentPlus(int no) {
         return dao.updateCommentPlus(no);

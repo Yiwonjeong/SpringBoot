@@ -95,6 +95,7 @@ public class BoardController {
         service.updateArticleHit(no);
         // 댓글 가져오기
         List<ArticleVO> comments = service.selectComment(no);
+
         // 글 가져오기
         ArticleVO article = service.selectArticle(no);
 
@@ -163,6 +164,25 @@ public class BoardController {
 
         return "redirect:/board/view?group="+group+"&cate="+cate+"&no="+no+"&pg="+pg;
     }
+    // 대댓글 작성
+    @ResponseBody
+    @PostMapping("board/insertReComment")
+    public Map<String, Integer> insertReComment(ArticleVO vo, HttpServletRequest req){
+        vo.setRegip(req.getRemoteAddr());
+
+        log.warn("InsertReComment1");
+        log.warn("insert........"+vo);
+
+        int result = service.insertReComment(vo);
+
+        Map<String, Integer> resultMap = new HashMap<>();
+        resultMap.put("result", result);
+
+        log.warn("InsertReComment2");
+
+        return resultMap;
+        // http://localhost:8080/Farmstory/board/view?group=_croptalk&cate=story&no=444&pg=1
+    }
     // 댓글 수정
     @ResponseBody
     @PostMapping("board/updateComment")
@@ -183,6 +203,7 @@ public class BoardController {
         service.deleteComment(no);
         return "redirect:/board/view?group="+group+"&cate="+cate+"&no="+parent+"&pg="+pg;
     }
+
 
 
 }

@@ -134,11 +134,27 @@
         on a.uid = b.uid
         where `parent`=#{parent} order by `no` asc;
     </select>
-
+    <!-- 대댓글 목록 -->
+    <select id="selectRecomment" resultType="kr.co.farmstory.vo.ArticleVO">
+        select a.*, b.`nick` from `board_article` as a
+        join `board_user` as b
+        on a.uid = b.uid
+        where `parent`=#{parent} and `cno`=#{cno} order by `no` asc;
+    </select>
     <!-- 댓글 작성 -->
     <insert id="insertComment">
         insert into `board_article` set
         `parent`=#{parent},
+        `content`=#{content},
+        `uid`=#{uid},
+        `regip`=#{regip},
+        `rdate`=NOW();
+    </insert>
+    <!-- 대댓글 작성 -->
+    <insert id="insertReComment">
+        insert into `board_article` set
+        `parent`=#{parent},
+        `cno`=#{cno},
         `content`=#{content},
         `uid`=#{uid},
         `regip`=#{regip},
@@ -168,5 +184,7 @@
     <delete id="deleteComment">
         delete from `board_article` where `no`=#{no};
     </delete>
+
+
 
 </mapper>

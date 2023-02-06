@@ -44,8 +44,11 @@ public interface ArticleDAO {
     // ------------------------------------  댓글 ---------------------------------------
     // 댓글 목록
     public List<ArticleVO> selectComment(int parent);
+    // 대댓글 목록
     // 댓글 작성
     public int insertComment(ArticleVO vo);
+    // 대댓글 작성
+    public int insertReComment(ArticleVO vo);
     // 댓글 수 +1 (목록 댓글 수 표기 위함)
     public int updateCommentPlus(int no);
     // 댓글 수 -1 (목록 댓글 수 표기 위함)
@@ -54,6 +57,7 @@ public interface ArticleDAO {
     public int updateComment(ArticleVO vo);
     // 댓글 삭제
     public int deleteComment(int no);
+
 
 
 }

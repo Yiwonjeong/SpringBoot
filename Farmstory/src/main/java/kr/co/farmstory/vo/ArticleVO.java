@@ -28,6 +28,13 @@ public class ArticleVO {
     private String nick;
     private FileVO fileVO;
     private String page;
+    private Integer cno;
 
-    public String getRdate(){return rdate.substring(2, 10);}
+    public String getRdate(){
+        if(rdate != null){
+            return rdate.substring(2, 10);
+        }else{
+            return null;
+        }
+    }
 }

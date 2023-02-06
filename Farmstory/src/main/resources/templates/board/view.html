@@ -3,64 +3,7 @@
 <th:block th:replace="~{/header}"/>
 <th:block th:replace="~{/board/__${group}__}"/>
 <script>
-    $(document).ready(function(){
-        $(document).on('click', '.modify', function(e){
-            e.preventDefault();
 
-            console.log('here1');
-            let txt = $(this).text();
-            p_tag = $(this).parent().prev();
-                $(this).hide();
-                $(this).next().css('display', 'inline-block');
-                p_tag.attr('contentEditable', true);
-                p_tag.focus();
-        });
-
-        $(document).on('click', '.modifyComplete', function(e) {
-            e.preventDefault();
-
-            console.log('here2');
-            let txt = $(this).text();
-
-            if(txt == '등록'){
-    				$(this).hide();
-    				$(this).prev().show();
-
-    				console.log('here3');
-
-    				let no = $(this).attr('data-no');
-    				let content = p_tag.text();
-
-    				console.log(no);
-    				console.log(content);
-
-    				const jsonData = {
-    						'no': no,
-    						'content': content
-    				};
-
-    				console.log(jsonData);
-
-    				$.ajax({
-    					url : '/Farmstory/board/updateComment',
-    					type: 'POST',
-    					data: jsonData,
-    					dataType: 'json',
-    					success: function(data){
-    						console.log(data);
-    						if(data.result == 1){
-    							alert('수정되었습니다.');
-    						}else {
-    							alert('error');
-    						}
-    					}
-
-    				});
-
-    			}
-        });
-
-    });
 
 </script>
 <main id="board" class="view">
@@ -87,6 +30,7 @@
         </tr>
 
     </table>
+
     <div>
         <a th:if="${user.uid == article.uid}" th:href="@{/board/delete(group=${group}, cate=${cate}, no=${article.no}, pg=${pg})}" class="btn btnRemove">삭제</a>
         <a th:if="${user.uid == article.uid}" th:href="@{/board/modify(group=${group}, cate=${cate}, no=${article.no}, pg=${pg})}" class="btn btnModify">수정</a>
@@ -97,17 +41,37 @@
         <h3>댓글목록</h3>
         <article th:each="comment:${comments}">
             <input type="text" name="no" th:value="${comment.no}">
-            <input type="text" name="parent" th:value="${comment.parent}">
-            <input type="text" name="pg" th:value="${pg}">
-            <input type="text" name="uid" th:value="${comment.uid}">
+            <input type="hidden" name="parent" th:value="${comment.parent}">
+            <input type="hidden" name="pg" th:value="${pg}">
+            <input type="hidden" name="uid" th:value="${comment.uid}">
             <span class="nick">[[${comment.nick}]]</span>
+            <span th:if="${article.uid == comment.uid}" class="tagUser">작성자</span>
             <span class="date">[[${comment.rdate}]]</span>
             <p class="content">[[${comment.content}]]</p>
+
             <div>
                 <a th:if="${user.uid == comment.uid}" th:href="@{/board/deleteComment(group=${group}, cate=${cate}, no=${comment.no}, pg=${pg}, parent=${comment.parent})}" class="remove" th:data-no="${comment.no}" th:data-parent="${comment.parent}">삭제</a>
                 <a th:if="${user.uid == comment.uid}" href="#" class="modify">수정</a>
                 <a th:action="@{#}" class="modifyComplete" th:data-no="${comment.no}" th:data-pg="${pg}">등록</a>
+                <a class="reComment" href="#">답글</a>
+                <a class="reCommentCancel" href="#">답글접기</a>
             </div>
+            <!-- 대댓글 작성폼 -->
+            <section class="reCommentForm">
+                <input type="text" name="group" th:value="${group}">
+                <input type="text" name="cate" th:value="${cate}">
+                <input type="text" name="uid" th:value="${user.uid}">
+                <input type="text" name="pg" th:value="${pg}">
+                <textarea class="reComment_write" name="content" placeholder="인터넷은 우리가 함께 만들어가는 소중한 공간입니다. 댓글 작성 시 타인에 대한 배려와 책임을 담아주세요."></textarea>
+                <input type="button" class="btn btnReComplete" value="등록" th:data-parent="${article.no}" th:data-cno="${comment.no}"/>
+            </section>
+        </article>
+        <!-- 대댓글 리스트 -->
+        <article class="reply" th:each="reComment:${reComments}">
+            <input type="text" name="no" th:value="${comment.parent}">
+            <span class="nick">[[${reComment.nick}]]</span>
+            <span class="date">[[${reComment.rdate}]]</span>
+            <p class="content">[[${reComment.content}]]</p>
         </article>
         <th:block th:if="${#lists.isEmpty(comments)}">
             <p class="empty">등록된 댓글이 없습니다.</p>
